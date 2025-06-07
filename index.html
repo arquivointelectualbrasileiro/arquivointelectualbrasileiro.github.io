@@ -344,8 +344,24 @@
 
         // ATUALIZADO: A Central de Dados agora tem mais campos por curso
         const coursesData = [
-            {
+        {
                 id: 1,
+                title: "Acervo Filosófico Mário Ferreira",
+                thumbnail: "mario.png",
+                price: "R$40",
+                description: "Sua jornada definitiva na obra de Mário Ferreira dos Santos começa aqui. Este é um espaço exclusivo, criado para quem não se contenta com o superficial e deseja estudar a fundo o filósofo que ergueu um dos mais impressionantes sistemas filosóficos do século XX. Ao entrar, você não recebe apenas arquivos, mas as ferramentas para uma verdadeira formação intelectual.",
+                checkoutLink: "https://pay.hotmart.com/K99776127Y",
+                icon_svg: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25A2.25 2.25 0 015.25 3h9.75a2.25 2.25 0 012.25 2.25z" /></svg>`,
+                learningPoints: [
+			"<b>+100 Aulas Raras:</b> Mergulhe em horas de conteúdo com áudio restaurado manualmente.",
+                    "<b>Biblioteca Digital Completa:</b> Tenha todos os livros de Mário Ferreira na palma da sua mão.",
+                    "<b>Transcrições Integrais:</b> Facilite seus estudos com transcrições de aulas selecionadas."
+                ],
+                duration: "Contínuo",
+                level: "Todos"
+            },
+            {
+                id: 2,
                 title: "Biografia de Mário Ferreira dos Santos",
                 thumbnail: "monografia.png",
                 price: "R$ 16,90",
@@ -361,22 +377,6 @@
                 ],
                 duration: "Aprox. 1h",
                 level: "Iniciante a Intermediário"
-            },
-            {
-                id: 2,
-                title: "Acervo Filosófico Mário Ferreira",
-                thumbnail: "mario.png",
-                price: "R$40",
-                description: "Sua jornada definitiva na obra de Mário Ferreira dos Santos começa aqui. Este é um espaço exclusivo, criado para quem não se contenta com o superficial e deseja estudar a fundo o filósofo que ergueu um dos mais impressionantes sistemas filosóficos do século XX. Ao entrar, você não recebe apenas arquivos, mas as ferramentas para uma verdadeira formação intelectual.",
-                checkoutLink: "https://pay.hotmart.com/K99776127Y",
-                icon_svg: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25A2.25 2.25 0 015.25 3h9.75a2.25 2.25 0 012.25 2.25z" /></svg>`,
-                learningPoints: [
-			"<b>+100 Aulas Raras:</b> Mergulhe em horas de conteúdo com áudio restaurado manualmente.",
-                    "<b>Biblioteca Digital Completa:</b> Tenha todos os livros de Mário Ferreira na palma da sua mão.",
-                    "<b>Transcrições Integrais:</b> Facilite seus estudos com transcrições de aulas selecionadas."
-                ],
-                duration: "Contínuo",
-                level: "Todos"
             },
             {
                 id: 3,
