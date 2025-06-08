@@ -1,0 +1,309 @@
+/* ================================================= */
+/* REFINAMENTO PROFISSIONAL V2             */
+/* ================================================= */
+
+/* Definições Globais e Variáveis de Cor */
+:root {
+    --bg-color: #0a0a0a; /* Um preto um pouco mais suave */
+    --surface-color: #141414; /* Cinza escuro para seções alternadas */
+    --primary-color: #D4AF37;
+    --text-color: #e0e0e0;
+    --text-muted: #a0a0a0;
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Roboto', sans-serif;
+}
+
+/* Reset Básico e Melhorias de Renderização */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px; /* Define uma base consistente */
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased; /* Deixa a fonte mais nítida em alguns navegadores */
+    text-rendering: optimizeLegibility;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- EFEITO DE FADE-IN (Sem alterações) --- */
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* --- ESTILOS DAS SEÇÕES --- */
+
+/* Hero: Títulos maiores, mais impacto */
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), #0a0a0a), url('https://images.pexels.com/photos/3747505/pexels-photo-3747505.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') no-repeat center center/cover;
+    text-align: center;
+    padding: 120px 0; /* Mais espaçamento vertical */
+}
+
+.hero .logo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-bottom: 30px;
+    border: 3px solid var(--primary-color);
+}
+
+.hero h1 {
+    font-family: var(--font-heading);
+    font-size: 4.5rem; /* TÍTULO MUITO MAIOR */
+    color: #ffffff;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+    line-height: 1.1; /* Linhas mais próximas */
+}
+
+.hero .subtitle {
+    font-size: 1.25rem; /* Subtítulo um pouco maior */
+    color: var(--text-muted);
+    max-width: 650px;
+    margin: 0 auto 40px;
+}
+
+/* Botão de CTA: Mais proeminente */
+.cta-button {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: #000000;
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding: 18px 45px; /* Botão maior */
+    text-decoration: none;
+    border-radius: 8px; /* Bordas um pouco mais arredondadas */
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.25);
+}
+
+.cta-button:hover {
+    transform: translateY(-5px); /* Efeito de "levantar" */
+    box-shadow: 0 8px 30px rgba(212, 175, 55, 0.4);
+}
+
+.cta-button.secondary {
+    background-color: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.cta-subtext {
+    margin-top: 15px;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+/* Seções Padrão: Mais espaço, sem bordas */
+section {
+    padding: 100px 0; /* MUITO MAIS ESPAÇO */
+    position: relative;
+}
+
+.section-alt {
+    background-color: var(--surface-color); /* Fundo alternativo */
+}
+
+section h2 {
+    font-family: var(--font-heading);
+    font-size: 3.5rem; /* Títulos de seção MUITO MAIORES */
+    text-align: center;
+    margin-bottom: 60px; /* Mais espaço abaixo do título */
+    color: #ffffff;
+    line-height: 1.2;
+}
+
+section p {
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto 20px;
+    text-align: center;
+}
+
+.problem-section .section-image {
+    display: block;
+    max-width: 70%;
+    margin: 40px auto;
+    border-radius: 8px;
+    opacity: 1; /* Opacidade total para a imagem principal */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* Seção de Features: Efeito "flutuante" */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.feature-item {
+    background-color: var(--surface-color);
+    padding: 40px;
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid #2a2a2a;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.feature-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+}
+
+.feature-item .icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+.feature-item h3 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+/* Seção Bio */
+.bio-section .container {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+.bio-section .bio-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+.bio-section p {
+    text-align: left;
+}
+
+/* Seção FAQ: Estilo interativo */
+.faq-item {
+    background-color: var(--surface-color);
+    border: 1px solid #2a2a2a;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    overflow: hidden; /* Essencial para a animação */
+    transition: all 0.4s ease;
+}
+
+.faq-question {
+    padding: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.faq-question h3 {
+    font-size: 1.3rem;
+    color: #ffffff;
+    margin: 0;
+}
+
+.faq-question i {
+    color: var(--primary-color);
+    transition: transform 0.4s ease;
+}
+
+.faq-answer {
+    max-height: 0; /* Escondido por padrão */
+    transition: max-height 0.5s ease-in-out, padding 0.5s ease;
+}
+
+.faq-answer p {
+    padding: 0 25px 0 25px; /* Adiciona padding quando aberto, mas não no estado fechado */
+    text-align: left;
+    font-size: 1rem;
+    color: var(--text-muted);
+    margin-bottom: 0;
+}
+
+/* Estilos quando o FAQ está ativo (aberto) */
+.faq-item.active {
+    background-color: #1f1f1f;
+}
+
+.faq-item.active .faq-question i {
+    transform: rotate(180deg);
+}
+
+.faq-item.active .faq-answer {
+    max-height: 300px; /* Altura máxima para revelar a resposta */
+    padding-bottom: 25px;
+}
+
+.final-cta-section .container {
+    display: flex;             /* Ativa o modo Flexbox */
+    flex-direction: column;    /* Empilha os itens em uma coluna (verticalmente) */
+    align-items: center;       /* Alinha TODOS os itens ao centro do eixo horizontal */
+}
+
+.price-display {
+    font-family: var(--font-heading);
+    font-size: 5rem; /* Preço ainda maior */
+    font-weight: 700;
+    color: var(--primary-color);
+    margin: 20px 0 35px 0;
+    line-height: 1;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* Rodapé */
+footer {
+    padding: 40px 0;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    background-color: #000;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    html { font-size: 14px; }
+    
+    section { padding: 80px 0; }
+    
+    .hero h1 { font-size: 3.5rem; }
+    section h2 { font-size: 2.8rem; }
+    
+    .features-grid { grid-template-columns: 1fr; }
+
+    .bio-section .container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .bio-section p { text-align: center; }
+    
+    .price-display { font-size: 4rem; }
+}
+
+

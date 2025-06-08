@@ -3,444 +3,163 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catálogo de Cursos</title>
+    <title>Mário Ferreira dos Santos: O Legado Completo</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-
-
-    <!-- MailerLite Universal -->
-<script>
-    (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
-    .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
-    n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
-    (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
-    ml('account', '1578603');
-</script>
-<!-- End MailerLite Universal -->
-
-    <style>
-        /* --- ESTILOS GERAIS (CSS) --- */
-        
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: 'DM Sans', sans-serif;
-            background-color: #f8f9fa; /* Cor de fundo um pouco mais suave */
-            color: #222222;
-            padding: 40px 20px;
-        }
-
-        /* --- CABEÇALHO --- */
-        .header {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .header h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-        }
-
-        /* --- GRID DE CURSOS --- */
-        .course-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        /* --- CARD DE CURSO --- */
-        .course-card {
-            background-color: #FFFFFF;
-            border: 1px solid #EAEAEA;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .course-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
-        }
-
-        .course-card__thumbnail {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            background-color: #f0f0f0;
-        }
-        
-        .course-card__content {
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-        }
-
-        .course-card__title {
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-            flex-grow: 1;
-        }
-
-        .course-card__price {
-            font-size: 1.1rem;
-            font-weight: 500;
-            color: #007bff;
-            margin-bottom: 20px;
-        }
-
-        .course-card__button {
-            display: block;
-            width: 100%;
-            padding: 12px;
-            background-color: #222222;
-            color: #FFFFFF;
-            border: none;
-            border-radius: 5px;
-            font-family: 'DM Sans', sans-serif;
-            font-size: 1rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        
-        .course-card__button:hover {
-            background-color: #555555;
-        }
-        
-        /* --- JANELA MODAL DE DETALHES (ESTILOS ATUALIZADOS) --- */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0, 0, 0, 0.6);
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-
-        .modal-content {
-            background-color: #FFFFFF;
-            margin: auto;
-            padding: 0; /* Removido o padding geral para controle total */
-            border-radius: 8px;
-            max-width: 900px; /* Aumentado para o novo layout */
-            width: 100%;
-            position: relative;
-            animation: slide-down 0.4s ease-out;
-            overflow: hidden; /* Garante que nada saia das bordas */
-        }
-
-        @keyframes slide-down {
-            from {
-                transform: translateY(-50px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-        
-        /* NOVO: Cabeçalho do Modal */
-        .modal__header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 30px;
-            border-bottom: 1px solid #eaeaea;
-        }
-
-        .modal__title {
-            font-size: 1.5rem;
-            font-weight: 700;
-        }
-        
-        .modal__close-btn {
-            color: #AAAAAA;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-            line-height: 1;
-        }
-        .modal__close-btn:hover {
-            color: #000;
-        }
-
-        /* NOVO: Corpo do Modal com layout flex */
-        .modal__body {
-            display: flex;
-            flex-direction: row;
-        }
-
-        /* NOVO: Coluna da Esquerda */
-        .modal__left-col {
-            flex: 1;
-            background-color: #f8f9fa;
-            padding: 30px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
-        
-        .modal__icon {
-            width: 80px;
-            height: 80px;
-            margin-bottom: 20px;
-        }
-        
-        .modal__left-col .price-label {
-            font-size: 1rem;
-            color: #6c757d;
-        }
-        
-        .modal__price {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #007bff;
-            margin-bottom: 20px;
-        }
-        
-        .modal__buy-button {
-            display: inline-block;
-            width: 100%;
-            padding: 15px 30px;
-            background-color: #007bff;
-            color: #FFFFFF;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 1.1rem;
-            font-weight: 700;
-            transition: background-color 0.3s ease;
-        }
-        .modal__buy-button:hover {
-            background-color: #0056b3;
-        }
-
-        /* NOVO: Coluna da Direita */
-        .modal__right-col {
-            flex: 2;
-            padding: 30px;
-            overflow-y: auto;
-        }
-        
-        .modal__section-title {
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
-
-        .modal__description {
-            font-size: 1rem;
-            line-height: 1.6;
-            margin-bottom: 25px;
-            color: #343a40;
-        }
-
-        .modal__learning-list {
-            list-style-type: none; /* Remove bolinhas padrão */
-            padding-left: 0;
-            margin-bottom: 25px;
-        }
-        
-        .modal__learning-list li {
-            padding-left: 25px;
-            position: relative;
-            margin-bottom: 10px;
-            color: #343a40;
-        }
-        
-        /* NOVO: Cria um 'check' customizado para a lista */
-        .modal__learning-list li::before {
-            content: '✔';
-            color: #28a745;
-            position: absolute;
-            left: 0;
-            top: 2px;
-        }
-        
-        /* NOVO: Seção de informações adicionais */
-        .modal__additional-info {
-            display: flex;
-            gap: 40px;
-            margin-top: 20px;
-            border-top: 1px solid #eaeaea;
-            padding-top: 20px;
-        }
-        
-        .info-item .label {
-            font-size: 0.9rem;
-            color: #6c757d;
-            display: block;
-        }
-        .info-item .value {
-            font-size: 1rem;
-            font-weight: 500;
-        }
-
-        /* Responsividade para telas menores */
-        @media (max-width: 768px) {
-            .modal__body {
-                flex-direction: column;
-            }
-            .modal__right-col {
-                max-height: 300px;
-            }
-        }
-
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header class="header">
-        <h1>Catálogo de Cursos do Arquivo</h1>
+    <header class="hero">
+        <div class="container">
+            <img src="logoAFMF.png" alt="Logo Arquivo Intelectual Brasileiro" class="logo">
+            <h1 class="fade-in">O Fim da Dúvida. <br> O Começo da Alta Cultura.</h1>
+            <p class="subtitle fade-in">Cansado de perguntar "por onde começar"? Tenha acesso ao sistema completo de Mário Ferreira dos Santos, perfeitamente organizado para a sua formação definitiva.</p>
+            <a href="https://pay.hotmart.com/K99776127Y" class="cta-button">QUERO O MAPA COMPLETO POR APENAS R$40</a>
+            <p class="cta-subtext">Pagamento único. Sem mensalidades.</p>
+        </div>
     </header>
 
     <main>
-        <div id="course-grid" class="course-grid"></div>
-    </main>
-    
-    <div id="details-modal" class="modal">
-        <div class="modal-content">
-            <header class="modal__header">
-                <h2 id="modal-title" class="modal__title"></h2>
-                <span id="modal-close-btn" class="modal__close-btn">&times;</span>
-            </header>
-            
-            <div class="modal__body">
-                <div class="modal__left-col">
-                    <div id="modal-icon" class="modal__icon"></div>
-                    <span class="price-label">Preço:</span>
-                    <div id="modal-price" class="modal__price"></div>
-                    <a id="modal-buy-button" class="modal__buy-button" href="#" target="_blank">Comprar agora</a>
+        <section class="problem-section fade-in-section">
+            <div class="container">
+                <h2>Você vive paralisado pela pergunta: <br>"Por onde eu começo?"</h2>
+                <p>Se você já se pegou no Instagram ou em grupos de estudo digitando: <strong>"Qual a ordem para ler Mário Ferreira?"</strong>, <strong>"Por qual livro começo?"</strong>, <strong>"Qual a obra mais importante?"</strong>, ou se perguntando <strong>"Comprei o livro X, fiz bem?"</strong>... você não está sozinho. </p>
+                <img src="library.png" alt="Corredor escuro de biblioteca com uma lâmpada ao fundo" class="section-image">
+                <p>Essa paralisia da dúvida é o maior obstáculo para uma formação séria. Você passa mais tempo pesquisando o caminho do que efetivamente caminhando. Enquanto você busca o "começo perfeito", seu tempo precioso se esvai e sua formação intelectual fica estagnada.</p>
+            </div>
+        </section>
+
+        <section class="solution-section section-alt fade-in-section">
+            <div class="container">
+                <h2>Pare de Procurar o Começo. <br>Adquira o Caminho Inteiro.</h2>
+                <p>Apresentamos o Acervo Completo de Mário Ferreira dos Santos. A resposta definitiva para a sua busca. Nós não apenas reunimos tudo, mas organizamos o material para que você nunca mais precise perguntar "e agora?". Este é o alicerce sobre o qual toda a sua vida intelectual será construída.</p>
+            </div>
+        </section>
+
+        <section class="features-section fade-in-section">
+            <div class="container">
+                <h2>O Acervo Completo Inclui:</h2>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="icon"><i class="fa-solid fa-book-journal-whills"></i></div>
+                        <h3>Todos os Livros</h3>
+                        <p>A obra completa em formato digital, organizada segundo o critério de suas filhas. A base para entender toda a sua filosofia.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="icon"><i class="fa-solid fa-headphones-simple"></i></div>
+                        <h3>Aulas com Áudio Premium</h3>
+                        <p>Dezenas de horas de aulas com a melhor qualidade de áudio disponível. Editadas manualmente, sem robôs, para uma clareza impecável.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="icon"><i class="fa-solid fa-file-lines"></i></div>
+                        <h3>Transcrições das Aulas</h3>
+                        <p>Acompanhe, estude e faça anotações. O material transcrito potencializa o seu aprendizado e a fixação do conteúdo.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="icon"><i class="fa-solid fa-microphone-stand"></i></div>
+                        <h3>Palestras Raras</h3>
+                        <p>Acesso a palestras e intervenções que revelam a profundidade e a aplicação do pensamento de Mário Ferreira dos Santos.</p>
+                    </div>
+                </div>
+                 <a href="https://pay.hotmart.com/K99776127Y" class="cta-button secondary">GARANTIR MEU ACERVO COMPLETO AGORA</a>
+            </div>
+        </section>
+        
+        <section class="bio-section section-alt fade-in-section">
+            <div class="container">
+                 <img src="logoAFMF.png" alt="Mário Ferreira dos Santos" class="bio-image">
+                <div>
+                    <h2>Conheça o Titã Brasileiro</h2>
+                    <p>Mário Ferreira dos Santos (1907-1968) foi um filósofo, tradutor, e um dos maiores pensadores brasileiros do século XX. Autor de uma vasta obra, a "Enciclopédia de Ciências Filosóficas e Sociais", ele criou um sistema filosófico próprio, a Filosofia Concreta. Ignorado pela academia e pela mídia, seu trabalho é a chave para quem busca uma formação intelectual independente e robusta, longe das ideologias que dominaram o país.</p>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="faq-section fade-in-section">
+            <div class="container">
+                <h2>Suas Dúvidas, Respondidas de Forma Direta:</h2>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Qual a melhor forma de começar? Existe uma ordem para ler as obras?</h3>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Esta é a dúvida mais comum e a mais importante. A resposta não está em um único livro, mas no acesso ao sistema completo de pensamento. <strong>Este acervo foi criado para resolver EXATAMENTE isso.</strong> Nós não apenas reunimos tudo, mas organizamos o material seguindo a lógica do próprio autor e o critério de suas filhas. Em vez de dar um passo incerto comprando uma obra avulsa, você recebe o mapa completo. A melhor forma de começar é ter tudo à sua disposição, de forma ordenada. É isso que oferecemos.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                     <div class="faq-question">
+                        <h3>"Não tenho dinheiro agora / Vou esperar o cartão virar."</h3>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Entendemos a prudência. Mas reflita: quanto vale o fim da sua paralisia intelectual? R$40 é menos que um lanche em família, menos que uma assinatura mensal de streaming que te distrai em vez de te formar. Este não é um gasto, é o melhor investimento na sua capacidade de PENSAR que você fará este ano. Adiar essa decisão é adiar o seu próprio crescimento por um valor simbólico.</p>
+                    </div>
                 </div>
                 
-                <div class="modal__right-col">
-                    <h3 class="modal__section-title">Descrição do curso</h3>
-                   <div id="modal-description" class="modal__description"></div> 
-                    <h3 class="modal__section-title">O que você vai aprender</h3>
-                    <ul id="modal-learning-list" class="modal__learning-list"></ul>
-                    
-                    <div class="modal__additional-info">
-                        <div id="modal-duration" class="info-item"></div>
-                        <div id="modal-level" class="info-item"></div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>"Não tenho tempo para estudar mais nada."</h3>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Este material não é "mais uma coisa" na sua lista. É o mapa que dará sentido a todas as outras leituras. Mário Ferreira te ensina a PENSAR, a organizar o conhecimento. Ao investir uma hora por semana aqui, você ganhará dezenas de horas que seriam perdidas com leituras infrutíferas. Pare de correr sem direção. Comece a construir com a ferramenta certa.</p>
+                    </div>
+                </div>
+                
+                 <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>"Já tenho muitos livros na fila para ler."</h3>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Muitos de nós sofremos da "tsundoku" – a arte de comprar livros e não os ler. Isso acontece por falta de um pilar central. A obra de Mário Ferreira não é mais um livro para a pilha, é a fundação que vai te dar o critério para saber O QUE ler, COMO ler e POR QUE ler. Ele vai transformar sua pilha de livros de um monumento à ansiedade em uma biblioteca com propósito.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>"Mas já tem conteúdo dele de graça no YouTube."</h3>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sim, e isso é ótimo para uma primeira impressão. Mas o que oferecemos é diferente. É o acervo completo, organizado e, crucialmente, com o áudio que EU tratei manually, garantindo a melhor qualidade sonora possível para um estudo sério. Não deixe sua formação depender de áudios abafados e material desorganizado. Aqui, você tem o pacote definitivo.</p>
                     </div>
                 </div>
             </div>
+        </section>
+
+        <section class="final-cta-section section-alt fade-in-section">
+            <div class="container">
+                <h2>Seja Um Agente na Restauração da Cultura Brasileira.</h2>
+                <p>Adquirir este acervo é mais do que um ato de auto-aperfeiçoamento. É um voto de confiança na alta cultura. É um passo para se tornar não apenas um consumidor de ideias, mas um homem culto, com uma base intelectual sólida, capaz de influenciar sua família, seus amigos e sua comunidade.</p>
+                <p>Acesso vitalício a todo este legado por um pagamento único de:</p>
+                <div class="price-display">R$40</div>
+                <a href="https://pay.hotmart.com/K99776127Y" class="cta-button">EU ASSUMO ESTE COMPROMISSO</a>
+                <p class="cta-subtext">Sua jornada para a verdadeira cultura começa agora.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Arquivo Intelectual Brasileiro. Todos os direitos reservados.</p>
+            <p>Este é um produto independente, criado para a disseminação da cultura brasileira.</p>
         </div>
-    </div>
+    </footer>
+
+    <script src="script.js"></script>
 
 
-    <script>
-        // --- FUNCIONALIDADES (JAVASCRIPT) ---
 
-        // ATUALIZADO: A Central de Dados agora tem mais campos por curso
-        const coursesData = [
-        {
-                id: 1,
-                title: "Acervo Filosófico Mário Ferreira",
-                thumbnail: "mario.png",
-                price: "R$40",
-                description: "Sua jornada definitiva na obra de Mário Ferreira dos Santos começa aqui. Este é um espaço exclusivo, criado para quem não se contenta com o superficial e deseja estudar a fundo o filósofo que ergueu um dos mais impressionantes sistemas filosóficos do século XX. Ao entrar, você não recebe apenas arquivos, mas as ferramentas para uma verdadeira formação intelectual.",
-                checkoutLink: "https://pay.hotmart.com/K99776127Y",
-                icon_svg: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25A2.25 2.25 0 015.25 3h9.75a2.25 2.25 0 012.25 2.25z" /></svg>`,
-                learningPoints: [
-			"<b>+100 Aulas Raras:</b> Mergulhe em horas de conteúdo com áudio restaurado manualmente.",
-                    "<b>Biblioteca Digital Completa:</b> Tenha todos os livros de Mário Ferreira na palma da sua mão.",
-                    "<b>Transcrições Integrais:</b> Facilite seus estudos com transcrições de aulas selecionadas."
-                ],
-                duration: "Contínuo",
-                level: "Todos"
-            }
-            // Adicione mais cursos aqui seguindo o mesmo modelo
-        ];
-
-        // --- LÓGICA PARA CRIAR OS CARDS E O MODAL ---
-		
-        document.addEventListener('DOMContentLoaded', () => {
-            const courseGrid = document.getElementById('course-grid');
-            
-            // Cria os cards de curso dinamicamente
-            coursesData.forEach(course => {
-                const card = document.createElement('div');
-                card.className = 'course-card';
-                card.innerHTML = `
-                    <img src="${course.thumbnail}" alt="${course.title}" class="course-card__thumbnail">
-                    <div class="course-card__content">
-                        <h3 class="course-card__title">${course.title}</h3>
-                        <p class="course-card__price">${course.price}</p>
-                        <button class="course-card__button" data-course-id="${course.id}">Ver detalhes</button>
-                    </div>
-                `;
-                courseGrid.appendChild(card);
-            });
-
-            // Lógica do Modal
-            const modal = document.getElementById('details-modal');
-            const modalCloseBtn = document.getElementById('modal-close-btn');
-            const learningList = document.getElementById('modal-learning-list');
-            
-            courseGrid.addEventListener('click', (event) => {
-                if (event.target.classList.contains('course-card__button')) {
-                    const courseId = parseInt(event.target.getAttribute('data-course-id'));
-                    const course = coursesData.find(c => c.id === courseId);
-                    
-                    if (course) {
-                        document.getElementById('modal-title').textContent = course.title;
-                        document.getElementById('modal-description').innerHTML = course.description;
-			            document.getElementById('modal-price').textContent = course.price;
-                        document.getElementById('modal-buy-button').href = course.checkoutLink;
-                        document.getElementById('modal-icon').innerHTML = course.icon_svg;
-                        
-                        document.getElementById('modal-duration').innerHTML = `<span class="label">Duração</span><span class="value">${course.duration}</span>`;
-                        document.getElementById('modal-level').innerHTML = `<span class="label">Nível</span><span class="value">${course.level}</span>`;
-
-                        learningList.innerHTML = '';
-                        course.learningPoints.forEach(point => {
-                            const li = document.createElement('li');
-                            // <<< AQUI ESTÁ A CORREÇÃO FINAL >>>
-                            // Usando .innerHTML para permitir que tags como <b> sejam renderizadas
-                            li.innerHTML = point; 
-                            learningList.appendChild(li);
-                        });
-                        
-                        modal.style.display = 'flex';
-                    }
-                }
-            });
-
-            const closeModal = () => {
-                modal.style.display = 'none';
-            };
-
-            modalCloseBtn.addEventListener('click', closeModal);
-
-            window.addEventListener('click', (event) => {
-                if (event.target === modal) {
-                    closeModal();
-                }
-            });
-        });
-
-    </script>
 </body>
 </html>
