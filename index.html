@@ -3,175 +3,404 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mário Ferreira dos Santos: O Legado Completo</title>
-    
+    <title>Combo Definitivo do Arquivo Intelectual Brasileiro</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    
-    <link rel="stylesheet" href="style.css">
-    
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-GT210W8HDD"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        /* --- ESTILOS GERAIS (CSS) --- */
+        :root {
+            --background-color: #121212;
+            --text-color: #E0E0E0;
+            --primary-accent-color: #D4AF37; /* Um dourado/ocre para destaque */
+            --button-bg-color: #F5F5F5;
+            --button-text-color: #121212;
+        }
 
-  gtag('config', 'G-GT210W8HDD');
-</script>
-    
-    
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            font-family: 'Montserrat', sans-serif;
+            text-align: center;
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            overflow-x: hidden; /* Evita barras de rolagem horizontais por causa das animações */
+        }
+
+        /* --- ANIMAÇÕES DINÂMICAS --- */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- SEÇÕES E TEXTOS --- */
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            color: var(--primary-accent-color);
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        h3.subtitle {
+            font-size: 1.2rem;
+            font-weight: 400;
+            margin-bottom: 2.5rem;
+            color: #BDBDBD;
+        }
+
+        .product-image {
+            max-width: 350px; /* Tamanho da imagem reduzido */
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            margin: 0 auto 2.5rem auto; /* Centraliza a imagem */
+            display: block;
+        }
+
+        p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-divider {
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(212, 175, 55, 0), rgba(212, 175, 55, 0.75), rgba(212, 175, 55, 0));
+            margin: 3rem auto;
+        }
+
+        /* --- DETALHES DOS ACERVOS --- */
+        .acervo-item {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 20px;
+            text-align: left;
+            border-left: 4px solid var(--primary-accent-color);
+        }
+
+        .acervo-item h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: #FFFFFF;
+        }
+        
+        .acervo-item p {
+            font-size: 1rem;
+            color: #BDBDBD;
+            margin-bottom: 0;
+        }
+        
+        .bonus-item {
+             background-color: rgba(212, 175, 55, 0.1);
+        }
+
+
+        /* --- SEÇÃO DE OFERTA --- */
+        .offer-section {
+            background-color: #000;
+            border: 1px solid var(--primary-accent-color);
+            padding: 30px;
+            border-radius: 10px;
+            margin: 3rem auto;
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.2);
+        }
+        
+        .offer-section h2 {
+            font-size: 1.2rem;
+            font-weight: 400;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #FFFFFF;
+            font-family: 'Montserrat', sans-serif; /* Ajuste para consistência */
+            margin-bottom: 1rem;
+        }
+        
+        .old-price {
+            font-size: 1.5rem;
+            text-decoration: line-through;
+            color: #888;
+            margin: 1rem 0 0.5rem 0;
+        }
+        
+        .new-price {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            color: var(--primary-accent-color);
+            margin: 0;
+            line-height: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .new-price span.currency {
+            font-size: 2rem;
+            font-weight: normal;
+            margin-right: 10px;
+            align-self: flex-start;
+            margin-top: 5px;
+        }
+        
+        .installments {
+            font-size: 1.1rem;
+            color: #BDBDBD;
+            margin-top: 0.5rem;
+        }
+
+        /* --- BOTÃO DE CHAMADA PARA AÇÃO (CTA) --- */
+        .cta-button {
+            display: inline-block;
+            background-color: var(--button-bg-color);
+            color: var(--button-text-color);
+            padding: 18px 35px;
+            margin-top: 1.5rem;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            animation: pulse 2s infinite;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(245, 245, 245, 0.3);
+            animation-play-state: paused;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+            100% { transform: scale(1); }
+        }
+
+        /* --- SEÇÃO DE DÚVIDAS (FAQ) --- */
+        .faq-section {
+            margin-top: 3rem;
+            text-align: left;
+        }
+        .faq-item {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            margin-bottom: 10px;
+            border-left: 4px solid var(--primary-accent-color);
+        }
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            font-weight: 700;
+            color: #FFFFFF;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .faq-question::after {
+            content: '+';
+            font-size: 1.8rem;
+            transition: transform 0.3s ease;
+        }
+        .faq-item.active .faq-question::after {
+            transform: rotate(45deg);
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease, padding 0.5s ease;
+            padding: 0 20px;
+            color: #BDBDBD;
+        }
+        .faq-item.active .faq-answer {
+            max-height: 200px; /* Altura suficiente para a resposta */
+            padding: 0 20px 20px;
+        }
+
+
+        /* --- RODAPÉ --- */
+        footer {
+            margin-top: 3rem;
+            font-size: 0.9rem;
+            color: #777;
+        }
+
+        /* --- AJUSTES PARA TELAS MENORES (RESPONSIVIDADE) --- */
+        @media (max-width: 600px) {
+            h1 { font-size: 2.2rem; }
+            h2 { font-size: 1.8rem; }
+            .new-price { font-size: 3.8rem; }
+            .new-price span.currency { font-size: 1.8rem; }
+            .container { padding: 30px 15px; }
+        }
+    </style>
 </head>
 <body>
 
-    <header class="hero">
-        <div class="container">
-            <img src="logoAFMF.png" alt="Logo Arquivo Intelectual Brasileiro" class="logo">
-            <h1 class="fade-in">O Fim da Dúvida. <br> O Começo da Alta Cultura.</h1>
-            <p class="subtitle fade-in">Cansado de perguntar "por onde começar"? Tenha acesso ao sistema completo de Mário Ferreira dos Santos, perfeitamente organizado para a sua formação definitiva.</p>
-            <a href="https://pay.hotmart.com/K99776127Y?checkoutMode=10" class="cta-button">QUERO O MAPA COMPLETO POR APENAS R$40</a>
-            <p class="cta-subtext">Pagamento único. Sem mensalidades.</p>
-        </div>
-    </header>
+    <main class="container">
+        
+        <header class="fade-in">
+            <h1>O Combo Definitivo do Arquivo Intelectual Brasileiro</h1>
+            <h3 class="subtitle">Tenha acesso imediato a toda a obra restaurada e organizada dos maiores intelectuais do Brasil em um único lugar.</h3>
 
-    <main>
-        <section class="problem-section fade-in-section">
-            <div class="container">
-                <h2>Você vive paralisado pela pergunta: <br>"Por onde eu começo?"</h2>
-                <p>Se você já se pegou no Instagram ou em grupos de estudo digitando: <strong>"Qual a ordem para ler Mário Ferreira?"</strong>, <strong>"Por qual livro começo?"</strong>, <strong>"Qual a obra mais importante?"</strong>, ou se perguntando <strong>"Comprei o livro X, fiz bem?"</strong>... você não está sozinho. </p>
-                <img src="library.png" alt="Corredor escuro de biblioteca com uma lâmpada ao fundo" class="section-image">
-                <p>Essa paralisia da dúvida é o maior obstáculo para uma formação séria. Você passa mais tempo pesquisando o caminho do que efetivamente caminhando. Enquanto você busca o "começo perfeito", seu tempo precioso se esvai e sua formação intelectual fica estagnada.</p>
-            </div>
-        </section>
+            <img src="logoAFMF.png" alt="Combo Definitivo do Arquivo Intelectual Brasileiro" class="product-image">
 
-        <section class="solution-section section-alt fade-in-section">
-            <div class="container">
-                <h2>Pare de Procurar o Começo. <br>Adquira o Caminho Inteiro.</h2>
-                <p>Apresentamos o Acervo Completo de Mário Ferreira dos Santos. A resposta definitiva para a sua busca. Nós não apenas reunimos tudo, mas organizamos o material para que você nunca mais precise perguntar "e agora?". Este é o alicerce sobre o qual toda a sua vida intelectual será construída.</p>
-            </div>
-        </section>
-
-        <section class="features-section fade-in-section">
-            <div class="container">
-                <h2>O Acervo Completo Inclui:</h2>
-                <div class="features-grid">
-                    <div class="feature-item">
-                        <div class="icon"><i class="fa-solid fa-book-journal-whills"></i></div>
-                        <h3>Todos os Livros</h3>
-                        <p>A obra completa em formato digital, organizada segundo o critério de suas filhas. A base para entender toda a sua filosofia.</p>
-                    </div>
-                    <div class="feature-item">
-                        <div class="icon"><i class="fa-solid fa-headphones-simple"></i></div>
-                        <h3>Aulas com Áudio Premium</h3>
-                        <p>Dezenas de horas de aulas com a melhor qualidade de áudio disponível. Editadas manualmente, sem robôs, para uma clareza impecável.</p>
-                    </div>
-                    <div class="feature-item">
-                        <div class="icon"><i class="fa-solid fa-file-lines"></i></div>
-                        <h3>Transcrições das Aulas</h3>
-                        <p>Acompanhe, estude e faça anotações. O material transcrito potencializa o seu aprendizado e a fixação do conteúdo.</p>
-                    </div>
-                    <div class="feature-item">
-                        <div class="icon"><i class="fa-solid fa-microphone-stand"></i></div>
-                        <h3>Palestras Raras</h3>
-                        <p>Acesso a palestras e intervenções que revelam a profundidade e a aplicação do pensamento de Mário Ferreira dos Santos.</p>
-                    </div>
+            <p>Para você, que acompanha o trabalho do <strong>Arquivo Intelectual Brasileiro</strong>, esta é uma oportunidade única e especial.</p>
+            <p>Reunimos, pela primeira vez, todos os acervos intelectuais que já restauramos e organizamos em um combo definitivo. São anos de trabalho dedicados a resgatar e preservar o legado de gigantes do pensamento brasileiro, agora compilados e acessíveis para você.</p>
+            <p>Este não é apenas um conjunto de cursos, mas uma verdadeira enciclopédia da alta cultura brasileira.</p>
+        </header>
+        
+        <hr class="section-divider fade-in">
+        
+        <section class="acervo-section">
+            <h2 class="fade-in">O que você receberá:</h2>
+            
+            <div class="acervo-item fade-in">
+                <div class="acervo-info">
+                    <h3>1. Acervo Filosófico Mário Ferreira dos Santos</h3>
+                    <p><strong>+100 aulas originais</strong>, livros e mais.</p>
                 </div>
-                 <a href="https://pay.hotmart.com/K99776127Y?checkoutMode=10" class="cta-button secondary">GARANTIR MEU ACERVO COMPLETO AGORA</a>
+            </div>
+            
+            <div class="acervo-item fade-in">
+                <div class="acervo-info">
+                    <h3>2. Acervo Literário Bruno Tolentino</h3>
+                    <p><strong>Dois cursos inéditos</strong> e obra completa.</p>
+                </div>
+            </div>
+            
+            <div class="acervo-item fade-in">
+                <div class="acervo-info">
+                    <h3>3. Acervo Cultural Monir Nasser</h3>
+                    <p>Aulas sobre <strong>alta literatura mundial</strong>.</p>
+                </div>
+            </div>
+            
+            <div class="acervo-item fade-in">
+                <div class="acervo-info">
+                    <h3>4. Acervo Gustavo Corção</h3>
+                    <p><strong>Quatro aulas raras</strong> e obra escrita.</p>
+                </div>
+            </div>
+
+            <div class="acervo-item bonus-item fade-in">
+                <div class="acervo-info">
+                    <h3>5. Bônus Exclusivo: Grupo do Arquivo</h3>
+                    <p>Acesso a <strong>+15 cursos completos</strong> sobre diversos temas.</p>
+                </div>
             </div>
         </section>
         
-        <section class="bio-section section-alt fade-in-section">
-            <div class="container">
-                 <img src="logoAFMF.png" alt="Mário Ferreira dos Santos" class="bio-image">
-                <div>
-                    <h2>Conheça o Titã Brasileiro</h2>
-                    <p>Mário Ferreira dos Santos (1907-1968) foi um filósofo, tradutor, e um dos maiores pensadores brasileiros do século XX. Autor de uma vasta obra, a "Enciclopédia de Ciências Filosóficas e Sociais", ele criou um sistema filosófico próprio, a Filosofia Concreta. Ignorado pela academia e pela mídia, seu trabalho é a chave para quem busca uma formação intelectual independente e robusta, longe das ideologias que dominaram o país.</p>
+        <section class="offer-section fade-in">
+            <h2>OFERTA ESPECIAL DE LANÇAMENTO</h2>
+            <p class="old-price">De ~~R$200,00~~</p>
+            <p>Por apenas:</p>
+            <div class="new-price">
+                <span class="currency">R$</span>120,00
+            </div>
+            <p class="installments">ou em até 6x de R$22,51</p>
+
+            <a href="https://pay.hotmart.com/K101362022M" class="cta-button" target="_blank">
+                Quero Garantir Meu Acesso a Todo o Acervo
+            </a>
+        </section>
+
+        <hr class="section-divider fade-in">
+
+        <section class="faq-section fade-in">
+            <h2>Dúvidas Frequentes</h2>
+            <div class="faq-item">
+                <div class="faq-question">Por quanto tempo terei acesso?</div>
+                <div class="faq-answer">
+                    <p>O acesso a todos os acervos e ao bônus é vitalício. Você compra uma vez e pode estudar no seu ritmo, para sempre, incluindo futuras atualizações dos materiais.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Como receberei o material?</div>
+                <div class="faq-answer">
+                    <p>Logo após a confirmação do pagamento, você receberá um e-mail da Hotmart com as instruções e o link para acessar a área de membros com todo o conteúdo organizado.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">A qualidade dos áudios é boa?</div>
+                <div class="faq-answer">
+                    <p>Sim. Todo o material em áudio passou por um rigoroso processo de restauração profissional para remover ruídos, melhorar a clareza e oferecer a melhor experiência de audição possível.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Quais são as formas de pagamento?</div>
+                <div class="faq-answer">
+                    <p>O pagamento é processado pela Hotmart, a maior e mais segura plataforma da América Latina. Você pode pagar com Cartão de Crédito (em até 6x), PIX, boleto e outras opções disponíveis na página de checkout.</p>
                 </div>
             </div>
         </section>
+        
+        <p class="fade-in" style="margin-top: 3rem;">Esta é a sua chance de possuir a biblioteca definitiva dos grandes pensadores brasileiros, com um material raro que foi cuidadosamente restaurado para o seu estudo.</p>
 
-
-        <section class="faq-section fade-in-section">
-            <div class="container">
-                <h2>Suas Dúvidas, Respondidas de Forma Direta:</h2>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>Qual a melhor forma de começar? Existe uma ordem para ler as obras?</h3>
-                        <i class="fa-solid fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Esta é a dúvida mais comum e a mais importante. A resposta não está em um único livro, mas no acesso ao sistema completo de pensamento. <strong>Este acervo foi criado para resolver EXATAMENTE isso.</strong> Nós não apenas reunimos tudo, mas organizamos o material seguindo a lógica do próprio autor e o critério de suas filhas. Em vez de dar um passo incerto comprando uma obra avulsa, você recebe o mapa completo. A melhor forma de começar é ter tudo à sua disposição, de forma ordenada. É isso que oferecemos.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                     <div class="faq-question">
-                        <h3>"Não tenho dinheiro agora / Vou esperar o cartão virar."</h3>
-                        <i class="fa-solid fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Entendemos a prudência. Mas reflita: quanto vale o fim da sua paralisia intelectual? R$40 é menos que um lanche em família, menos que uma assinatura mensal de streaming que te distrai em vez de te formar. Este não é um gasto, é o melhor investimento na sua capacidade de PENSAR que você fará este ano. Adiar essa decisão é adiar o seu próprio crescimento por um valor simbólico.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>"Não tenho tempo para estudar mais nada."</h3>
-                        <i class="fa-solid fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Este material não é "mais uma coisa" na sua lista. É o mapa que dará sentido a todas as outras leituras. Mário Ferreira te ensina a PENSAR, a organizar o conhecimento. Ao investir uma hora por semana aqui, você ganhará dezenas de horas que seriam perdidas com leituras infrutíferas. Pare de correr sem direção. Comece a construir com a ferramenta certa.</p>
-                    </div>
-                </div>
-                
-                 <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>"Já tenho muitos livros na fila para ler."</h3>
-                        <i class="fa-solid fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Muitos de nós sofremos da "tsundoku" – a arte de comprar livros e não os ler. Isso acontece por falta de um pilar central. A obra de Mário Ferreira não é mais um livro para a pilha, é a fundação que vai te dar o critério para saber O QUE ler, COMO ler e POR QUE ler. Ele vai transformar sua pilha de livros de um monumento à ansiedade em uma biblioteca com propósito.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>"Mas já tem conteúdo dele de graça no YouTube."</h3>
-                        <i class="fa-solid fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Sim, e isso é ótimo para uma primeira impressão. Mas o que oferecemos é diferente. É o acervo completo, organizado e, crucialmente, com o áudio que EU tratei manually, garantindo a melhor qualidade sonora possível para um estudo sério. Não deixe sua formação depender de áudios abafados e material desorganizado. Aqui, você tem o pacote definitivo.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="final-cta-section section-alt fade-in-section">
-            <div class="container">
-                <h2>Seja Um Agente na Restauração da Cultura Brasileira.</h2>
-                <p>Adquirir este acervo é mais do que um ato de auto-aperfeiçoamento. É um voto de confiança na alta cultura. É um passo para se tornar não apenas um consumidor de ideias, mas um homem culto, com uma base intelectual sólida, capaz de influenciar sua família, seus amigos e sua comunidade.</p>
-                <p>Acesso vitalício a todo este legado por um pagamento único de:</p>
-                <div class="price-display">R$40</div>
-                <a href="https://pay.hotmart.com/K99776127Y?checkoutMode=10" class="cta-button">EU ASSUMO ESTE COMPROMISSO</a>
-                <p class="cta-subtext">Sua jornada para a verdadeira cultura começa agora.</p>
-            </div>
-        </section>
     </main>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Arquivo Intelectual Brasileiro. Todos os direitos reservados.</p>
-            <p>Este é um produto independente, criado para a disseminação da cultura brasileira.</p>
-        </div>
+    
+    <footer class="fade-in">
+        <p>&copy; 2025 Arquivo Intelectual Brasileiro. Todos os direitos reservados.</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // --- JAVASCRIPT PARA ANIMAÇÃO DINÂMICA AO ROLAR A PÁGINA ---
+            const animatedElements = document.querySelectorAll('.fade-in');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            animatedElements.forEach(el => {
+                observer.observe(el);
+            });
 
-
+            // --- JAVASCRIPT PARA FUNCIONALIDADE DO FAQ (ACCORDION) ---
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    const isActive = item.classList.contains('active');
+                    // Opcional: Fechar todos os outros itens ao abrir um novo
+                    // faqItems.forEach(i => i.classList.remove('active'));
+                    if (!isActive) {
+                        item.classList.add('active');
+                    } else {
+                        item.classList.remove('active');
+                    }
+                });
+            });
+        });
+    </script>
 
 </body>
 </html>
