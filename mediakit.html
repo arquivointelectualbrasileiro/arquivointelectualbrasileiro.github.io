@@ -5,15 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Media Kit - Arquivo Intelectual Brasileiro</title>
     
-    <!-- Fontes: Playfair Display (Serifa elegante) e Inter (Leitura) -->
+    <!-- Fontes e Estilos -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    
-    <!-- Ícones Phosphor -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
-    
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
     <script>
@@ -22,8 +18,8 @@
                 extend: {
                     colors: {
                         brand: {
-                            dark: '#0f172a', /* Azul Marinho Profundo */
-                            gold: '#b49b67', /* Dourado Envelhecido/Livro Antigo */
+                            dark: '#0f172a',
+                            gold: '#b49b67',
                             light: '#f8fafc',
                         }
                     },
@@ -37,42 +33,29 @@
     </script>
 
     <style>
-        /* Animações sutis */
-        .fade-in-up {
-            animation: fadeInUp 0.8s ease-out forwards;
-            opacity: 0;
-            transform: translateY(20px);
-        }
-        
+        .fade-in-up { animation: fadeInUp 0.8s ease-out forwards; opacity: 0; transform: translateY(20px); }
         .delay-100 { animation-delay: 0.1s; }
         .delay-200 { animation-delay: 0.2s; }
         .delay-300 { animation-delay: 0.3s; }
-
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Estilo para impressão em PDF */
-        @media print {
-            body { -webkit-print-color-adjust: exact; }
+        @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+        @media print { 
+            body { -webkit-print-color-adjust: exact; } 
             .no-print { display: none; }
             .page-break { page-break-inside: avoid; }
         }
     </style>
 </head>
-<body class="bg-gray-50 text-slate-800 font-sans antialiased selection:bg-brand-gold selection:text-white">
+<body class="bg-gray-50 text-slate-800 font-sans antialiased">
 
-    <!-- Container Principal (Formato A4 Proporcional) -->
     <main class="max-w-[900px] mx-auto bg-white shadow-2xl my-8 overflow-hidden relative print:shadow-none print:my-0 print:w-full">
         
-        <!-- Faixa de Topo Decorativa -->
         <div class="h-2 w-full bg-brand-dark"></div>
 
-        <!-- Cabeçalho -->
-        <header class="px-10 pt-12 pb-8 text-center fade-in-up">
+        <header class="px-10 pt-12 pb-8 text-center fade-in-up relative">
+            <!-- Badge de Atualização em Tempo Real (Simulado) -->
+                </span>
+            </div>
+
             <h1 class="text-4xl md:text-5xl font-serif font-bold text-brand-dark tracking-wide mb-2">
                 ARQUIVO INTELECTUAL <br><span class="text-brand-gold italic">BRASILEIRO</span>
             </h1>
@@ -82,16 +65,16 @@
             <div class="w-16 h-1 bg-brand-gold mx-auto mt-6"></div>
         </header>
 
-        <!-- Seção de Métricas (Hero Stats) -->
+        <!-- Seção de Métricas -->
         <section class="px-10 py-6 bg-slate-50 border-y border-slate-100 fade-in-up delay-100">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-                <!-- Stat 1 -->
-                <div class="p-4">
+                <!-- Seguidores (Editável via JS no final) -->
+                <div class="p-4 transform hover:scale-105 transition-transform duration-300">
                     <div class="text-brand-gold text-3xl mb-2 flex justify-center"><i class="ph ph-users-three"></i></div>
-                    <div class="text-3xl font-bold text-brand-dark counter" data-target="30000">0</div>
-                    <div class="text-xs uppercase tracking-wider text-slate-500 font-semibold mt-1">Seguidores</div>
+                    <div class="text-3xl font-bold text-brand-dark" id="followers-display">0</div>
+                    <div class="text-xs uppercase tracking-wider text-slate-500 font-semibold mt-1">Seguidores Reais</div>
                 </div>
-                <!-- Stat 2 -->
+                <!-- Alcance -->
                 <div class="p-4 border-l border-slate-200">
                     <div class="text-brand-gold text-3xl mb-2 flex justify-center"><i class="ph ph-globe-hemisphere-west"></i></div>
                     <div class="text-3xl font-bold text-brand-dark flex justify-center items-baseline gap-1">
@@ -99,7 +82,7 @@
                     </div>
                     <div class="text-xs uppercase tracking-wider text-slate-500 font-semibold mt-1">Alcance Mensal</div>
                 </div>
-                <!-- Stat 3 -->
+                <!-- Interações -->
                 <div class="p-4 border-l border-slate-200">
                     <div class="text-brand-gold text-3xl mb-2 flex justify-center"><i class="ph ph-heart"></i></div>
                     <div class="text-3xl font-bold text-brand-dark flex justify-center items-baseline gap-1">
@@ -107,7 +90,7 @@
                     </div>
                     <div class="text-xs uppercase tracking-wider text-slate-500 font-semibold mt-1">Interações/Mês</div>
                 </div>
-                <!-- Stat 4 -->
+                <!-- Views -->
                 <div class="p-4 border-l border-slate-200">
                     <div class="text-brand-gold text-3xl mb-2 flex justify-center"><i class="ph ph-eye"></i></div>
                     <div class="text-3xl font-bold text-brand-dark flex justify-center items-baseline gap-1">
@@ -118,12 +101,10 @@
             </div>
         </section>
 
+        <!-- Conteúdo Principal -->
         <div class="grid md:grid-cols-12 gap-10 px-10 py-10">
-            
-            <!-- Coluna Esquerda: Sobre e Público (Maior) -->
+            <!-- Esquerda -->
             <div class="md:col-span-7 space-y-10 fade-in-up delay-200">
-                
-                <!-- Sobre -->
                 <article>
                     <h2 class="text-2xl font-serif font-bold text-brand-dark mb-4 flex items-center gap-3">
                         <span class="bg-brand-gold w-8 h-8 rounded-full flex items-center justify-center text-white text-sm"><i class="ph-fill ph-book-open-text"></i></span>
@@ -137,19 +118,15 @@
                     </p>
                 </article>
 
-                <!-- Perfil do Público -->
                 <article class="page-break">
                     <h2 class="text-2xl font-serif font-bold text-brand-dark mb-6 flex items-center gap-3">
                         <span class="bg-brand-gold w-8 h-8 rounded-full flex items-center justify-center text-white text-sm"><i class="ph-fill ph-user-focus"></i></span>
                         Perfil da Audiência
                     </h2>
-                    
                     <div class="bg-slate-50 p-6 rounded-lg border border-slate-100">
                         <p class="text-sm text-slate-600 mb-4 italic">
                             Uma audiência madura, com alto poder aquisitivo e intelectualizada. Grande parcela composta por advogados, políticos e acadêmicos.
                         </p>
-
-                        <!-- Gráfico de Gênero -->
                         <div class="mb-6">
                             <div class="flex justify-between text-sm font-bold text-brand-dark mb-1">
                                 <span>Homens (79%)</span>
@@ -160,8 +137,6 @@
                                 <div class="bg-slate-300 h-3 rounded-r-full" style="width: 21%"></div>
                             </div>
                         </div>
-
-                        <!-- Dados Demográficos -->
                         <div class="grid grid-cols-2 gap-4">
                             <div class="bg-white p-3 rounded shadow-sm border-l-4 border-brand-gold">
                                 <span class="block text-xs text-slate-400 uppercase">Faixa Etária</span>
@@ -176,16 +151,11 @@
                 </article>
             </div>
 
-            <!-- Coluna Direita: Serviços e Política (Lateral) -->
+            <!-- Direita -->
             <div class="md:col-span-5 space-y-8 fade-in-up delay-300">
-                
-                <!-- Serviços -->
                 <div class="bg-brand-dark text-white p-8 rounded-xl shadow-lg relative overflow-hidden">
-                    <!-- Detalhe de fundo -->
                     <i class="ph-fill ph-star absolute -top-4 -right-4 text-9xl text-white opacity-5"></i>
-
                     <h3 class="text-xl font-serif font-bold mb-6 border-b border-brand-gold/30 pb-2">Formatos de Parceria</h3>
-                    
                     <ul class="space-y-6">
                         <li class="flex gap-4">
                             <div class="min-w-[40px] h-10 bg-white/10 rounded-full flex items-center justify-center text-brand-gold">
@@ -217,7 +187,6 @@
                     </ul>
                 </div>
 
-                <!-- Política de Parceria -->
                 <div class="border-2 border-brand-gold/30 bg-orange-50/50 p-6 rounded-lg text-center">
                     <h3 class="text-brand-dark font-serif font-bold text-lg mb-3">Política de Fomento</h3>
                     <p class="text-sm text-slate-600 italic leading-relaxed mb-4">
@@ -232,62 +201,97 @@
                         </p>
                     </div>
                 </div>
-
             </div>
         </div>
 
-        <!-- Footer -->
         <footer class="bg-brand-dark text-white p-10 text-center mt-6">
             <h3 class="font-serif text-2xl mb-2">Vamos propagar a alta cultura?</h3>
             <p class="text-slate-400 text-sm mb-6">Entre em contato para envio de materiais e propostas.</p>
-            
             <a href="https://instagram.com/arquivointelectualbrasileiro" target="_blank" class="inline-flex items-center gap-2 bg-brand-gold hover:bg-yellow-600 text-white font-bold py-3 px-8 rounded-full transition-all transform hover:-translate-y-1 shadow-lg cursor-pointer no-underline">
                 <i class="ph-bold ph-paper-plane-right"></i>
                 Iniciar Parceria
             </a>
-            
             <p class="mt-8 text-xs text-slate-600 border-t border-slate-700 pt-4">
-                © 2025 Arquivo Intelectual Brasileiro. Todos os direitos reservados.
+                © <span id="year"></span> Arquivo Intelectual Brasileiro. Todos os direitos reservados.
             </p>
         </footer>
-
     </main>
 
-    <!-- Script de Animação dos Números -->
+    <!-- SCRIPTS INTELIGENTES -->
     <script>
+        // =================================================================
+        // ÁREA DE CONFIGURAÇÃO (ATUALIZE AQUI O NÚMERO ANTES DE ENVIAR)
+        // =================================================================
+        const CONFIG = {
+            instagramFollowers: +29200, // <--- Coloque o número exato aqui
+        };
+        // =================================================================
+
         document.addEventListener('DOMContentLoaded', () => {
-            const counters = document.querySelectorAll('.counter');
             
+            // 1. Atualizar Data e Ano automaticamente
+            const today = new Date();
+            const options = { day: 'numeric', month: 'long', year: 'numeric' };
+            document.getElementById('current-date').innerText = today.toLocaleDateString('pt-BR', options);
+            document.getElementById('year').innerText = today.getFullYear();
+
+            // 2. Animação dos Seguidores (Puxando da Configuração)
+            const followerDisplay = document.getElementById('followers-display');
+            animateValue(followerDisplay, 0, CONFIG.instagramFollowers, 2500);
+
+            // 3. Animação dos outros contadores
+            const counters = document.querySelectorAll('.counter');
             counters.forEach(counter => {
                 const target = +counter.getAttribute('data-target');
                 const isFloat = counter.getAttribute('data-target').includes('.');
-                const duration = 2000; // 2 segundos
-                const increment = target / (duration / 16); 
                 
-                let current = 0;
-                
-                const updateCounter = () => {
-                    current += increment;
+                // Pequeno delay para começar a animação
+                setTimeout(() => {
+                    let current = 0;
+                    const duration = 2000;
+                    const increment = target / (duration / 16);
                     
-                    if (current < target) {
-                        if(isFloat) {
-                            counter.innerText = current.toFixed(1);
+                    const updateCounter = () => {
+                        current += increment;
+                        if (current < target) {
+                            if(isFloat) {
+                                counter.innerText = current.toFixed(1);
+                            } else {
+                                counter.innerText = Math.ceil(current).toLocaleString('pt-BR');
+                            }
+                            requestAnimationFrame(updateCounter);
                         } else {
-                            counter.innerText = Math.ceil(current).toLocaleString('pt-BR');
+                            if(isFloat) {
+                                counter.innerText = target;
+                            } else {
+                                counter.innerText = target.toLocaleString('pt-BR');
+                            }
                         }
-                        requestAnimationFrame(updateCounter);
-                    } else {
-                        if(isFloat) {
-                            counter.innerText = target; // Mantém o ponto se for float
-                        } else {
-                            counter.innerText = target.toLocaleString('pt-BR');
-                        }
-                    }
-                };
-                
-                updateCounter();
+                    };
+                    updateCounter();
+                }, 500);
             });
         });
+
+        // Função de Animação Suave para números grandes
+        function animateValue(obj, start, end, duration) {
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                
+                // Efeito "ease-out" para desacelerar no final
+                const easeProgress = 1 - Math.pow(1 - progress, 3);
+                
+                const currentVal = Math.floor(easeProgress * (end - start) + start);
+                obj.innerHTML = currentVal.toLocaleString('pt-BR');
+                
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                }
+            };
+            window.requestAnimationFrame(step);
+        }
     </script>
 </body>
 </html>
