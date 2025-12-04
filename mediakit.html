@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Kit - Arquivo Intelectual Brasileiro</title>
+    
+    <!-- Fontes: Playfair Display (Serifa elegante) e Inter (Leitura) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Ícones Phosphor -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#0f172a', /* Azul Marinho Profundo */
+                            gold: '#b49b67', /* Dourado Envelhecido/Livro Antigo */
+                            light: '#f8fafc',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Inter"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Animações sutis */
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Estilo para impressão em PDF */
+        @media print {
+            body { -webkit-print-color-adjust: exact; }
+            .no-print { display: none; }
+            .page-break { page-break-inside: avoid; }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-slate-800 font-sans antialiased selection:bg-brand-gold selection:text-white">
+
+    <!-- Container Principal (Formato A4 Proporcional) -->
+    <main class="max-w-[900px] mx-auto bg-white shadow-2xl my-8 overflow-hidden relative print:shadow-none print:my-0 print:w-full">
+        
+        <!-- Faixa de Topo Decorativa -->
+        <div class="h-2 w-full bg-brand-dark"></div>
+
+        <!-- Cabeçalho -->
+        <header class="px-10 pt-12 pb-8 text-center fade-in-up">
+            <h1 class="text-4xl md:text-5xl font-serif font-bold text-brand-dark tracking-wide mb-2">
+                ARQUIVO INTELECTUAL <br><span class="text-brand-gold italic">BRASILEIRO</span>
+            </h1>
+            <p class="text-slate-500 font-medium tracking-widest text-sm uppercase mt-4 flex justify-center items-center gap-2">
+                <i class="ph-fill ph-instagram-logo text-lg"></i> @arquivointelectualbrasileiro
+            </p>
+            <div class="w-16 h-1 bg-brand-gold mx-auto mt-6"></div>
+        </header>
+
+        <!-- Seção de Métricas (Hero Stats) -->
+        <section class="px-10 py-6 bg-slate-50 border-y border-slate-100 fade-in-up delay-100">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                <!-- Stat 1 -->
+                <div class="p-4">
+                    <div class="text-brand-gold text-3xl mb-2 flex justify-center"><i class="ph ph-users-three"></i></div>
+                    <div class="text-3xl font-bold text-brand-dark counter" data-target="30000">0</div>
+                    <div class="text-xs uppercase tracking-wider text-slate-500 font-semibold mt-1">Seguidores</div>
+                </div>
+                <!-- Stat 2 -->
+                <div class="p-4 border-l border-slate-200">
+                    <div class="text-brand-gold text-3xl mb-2 flex justify-center"><i class="ph ph-globe-hemisphere-west"></i></div>
+                    <div class="text-3xl font-bold text-brand-dark flex justify-center items-baseline gap-1">
+                        <span class="counter" data-target="1.3">0</span><span>M+</span>
+                    </div>
+                    <div class="text-xs uppercase tracking-wider text-slate-500 font-semibold mt-1">Alcance Mensal</div>
+                </div>
+                <!-- Stat 3 -->
+                <div class="p-4 border-l border-slate-200">
+                    <div class="text-brand-gold text-3xl mb-2 flex justify-center"><i class="ph ph-heart"></i></div>
+                    <div class="text-3xl font-bold text-brand-dark flex justify-center items-baseline gap-1">
+                        <span class="counter" data-target="200">0</span><span>k+</span>
+                    </div>
+                    <div class="text-xs uppercase tracking-wider text-slate-500 font-semibold mt-1">Interações/Mês</div>
+                </div>
+                <!-- Stat 4 -->
+                <div class="p-4 border-l border-slate-200">
+                    <div class="text-brand-gold text-3xl mb-2 flex justify-center"><i class="ph ph-eye"></i></div>
+                    <div class="text-3xl font-bold text-brand-dark flex justify-center items-baseline gap-1">
+                        <span class="counter" data-target="40">0</span><span>k+</span>
+                    </div>
+                    <div class="text-xs uppercase tracking-wider text-slate-500 font-semibold mt-1">Views Stories</div>
+                </div>
+            </div>
+        </section>
+
+        <div class="grid md:grid-cols-12 gap-10 px-10 py-10">
+            
+            <!-- Coluna Esquerda: Sobre e Público (Maior) -->
+            <div class="md:col-span-7 space-y-10 fade-in-up delay-200">
+                
+                <!-- Sobre -->
+                <article>
+                    <h2 class="text-2xl font-serif font-bold text-brand-dark mb-4 flex items-center gap-3">
+                        <span class="bg-brand-gold w-8 h-8 rounded-full flex items-center justify-center text-white text-sm"><i class="ph-fill ph-book-open-text"></i></span>
+                        Sobre o Projeto
+                    </h2>
+                    <p class="text-slate-600 leading-relaxed text-justify mb-4">
+                        O <strong>Arquivo Intelectual Brasileiro</strong> surgiu há dois anos como uma iniciativa pioneira dedicada à restauração cultural do país. Nossa missão é resgatar, organizar e difundir a obra de grandes pensadores nacionais esquecidos, como <em>Mário Ferreira dos Santos, Bruno Tolentino e Gustavo Corção</em>.
+                    </p>
+                    <p class="text-slate-600 leading-relaxed text-justify">
+                        Somos a única página do Brasil com ênfase exclusiva nestes autores, o que nos conferiu uma <strong>autoridade única</strong> no nicho. Hoje, servimos como bússola para milhares de estudantes que buscam orientação intelectual sólida.
+                    </p>
+                </article>
+
+                <!-- Perfil do Público -->
+                <article class="page-break">
+                    <h2 class="text-2xl font-serif font-bold text-brand-dark mb-6 flex items-center gap-3">
+                        <span class="bg-brand-gold w-8 h-8 rounded-full flex items-center justify-center text-white text-sm"><i class="ph-fill ph-user-focus"></i></span>
+                        Perfil da Audiência
+                    </h2>
+                    
+                    <div class="bg-slate-50 p-6 rounded-lg border border-slate-100">
+                        <p class="text-sm text-slate-600 mb-4 italic">
+                            Uma audiência madura, com alto poder aquisitivo e intelectualizada. Grande parcela composta por advogados, políticos e acadêmicos.
+                        </p>
+
+                        <!-- Gráfico de Gênero -->
+                        <div class="mb-6">
+                            <div class="flex justify-between text-sm font-bold text-brand-dark mb-1">
+                                <span>Homens (79%)</span>
+                                <span class="text-slate-400 font-normal">Mulheres (21%)</span>
+                            </div>
+                            <div class="w-full bg-slate-200 rounded-full h-3 overflow-hidden flex">
+                                <div class="bg-brand-dark h-3 rounded-l-full" style="width: 79%"></div>
+                                <div class="bg-slate-300 h-3 rounded-r-full" style="width: 21%"></div>
+                            </div>
+                        </div>
+
+                        <!-- Dados Demográficos -->
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-white p-3 rounded shadow-sm border-l-4 border-brand-gold">
+                                <span class="block text-xs text-slate-400 uppercase">Faixa Etária</span>
+                                <span class="text-lg font-bold text-brand-dark">18 - 55 Anos</span>
+                            </div>
+                            <div class="bg-white p-3 rounded shadow-sm border-l-4 border-brand-gold">
+                                <span class="block text-xs text-slate-400 uppercase">Localização</span>
+                                <span class="text-lg font-bold text-brand-dark">96% Brasil</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Coluna Direita: Serviços e Política (Lateral) -->
+            <div class="md:col-span-5 space-y-8 fade-in-up delay-300">
+                
+                <!-- Serviços -->
+                <div class="bg-brand-dark text-white p-8 rounded-xl shadow-lg relative overflow-hidden">
+                    <!-- Detalhe de fundo -->
+                    <i class="ph-fill ph-star absolute -top-4 -right-4 text-9xl text-white opacity-5"></i>
+
+                    <h3 class="text-xl font-serif font-bold mb-6 border-b border-brand-gold/30 pb-2">Formatos de Parceria</h3>
+                    
+                    <ul class="space-y-6">
+                        <li class="flex gap-4">
+                            <div class="min-w-[40px] h-10 bg-white/10 rounded-full flex items-center justify-center text-brand-gold">
+                                <i class="ph-fill ph-instagram-logo text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-brand-gold">Stories (Alta Conversão)</h4>
+                                <p class="text-sm text-slate-300 leading-snug mt-1">O formato de maior impacto. Onde o público engajado interage e compra recomendações.</p>
+                            </div>
+                        </li>
+                        <li class="flex gap-4">
+                            <div class="min-w-[40px] h-10 bg-white/10 rounded-full flex items-center justify-center text-brand-gold">
+                                <i class="ph-fill ph-video text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-brand-gold">Unboxing & Reels</h4>
+                                <p class="text-sm text-slate-300 leading-snug mt-1">Apresentação física da obra, valorizando a estética e o material do livro.</p>
+                            </div>
+                        </li>
+                        <li class="flex gap-4">
+                            <div class="min-w-[40px] h-10 bg-white/10 rounded-full flex items-center justify-center text-brand-gold">
+                                <i class="ph-fill ph-image text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-brand-gold">Feed Estático</h4>
+                                <p class="text-sm text-slate-300 leading-snug mt-1">Foto produzida com análise intelectual na legenda. Perenidade no perfil.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Política de Parceria -->
+                <div class="border-2 border-brand-gold/30 bg-orange-50/50 p-6 rounded-lg text-center">
+                    <h3 class="text-brand-dark font-serif font-bold text-lg mb-3">Política de Fomento</h3>
+                    <p class="text-sm text-slate-600 italic leading-relaxed mb-4">
+                        "O conhecimento deve circular. Em prol da vida de estudos e da disseminação cultural, o Arquivo adota uma política de parcerias diferenciada."
+                    </p>
+                    <div class="bg-white p-3 rounded shadow-sm border border-brand-gold/20">
+                        <p class="text-brand-dark font-semibold text-sm">
+                            <i class="ph-fill ph-check-circle text-green-600 mr-1"></i> Não cobramos cachê publicitário.
+                        </p>
+                        <p class="text-xs text-slate-500 mt-1">
+                            Trabalhamos mediante o <strong>envio de exemplares</strong> das obras para compor o acervo de estudos e análise do editor.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="bg-brand-dark text-white p-10 text-center mt-6">
+            <h3 class="font-serif text-2xl mb-2">Vamos propagar a alta cultura?</h3>
+            <p class="text-slate-400 text-sm mb-6">Entre em contato para envio de materiais e propostas.</p>
+            
+            <a href="https://instagram.com/arquivointelectualbrasileiro" target="_blank" class="inline-flex items-center gap-2 bg-brand-gold hover:bg-yellow-600 text-white font-bold py-3 px-8 rounded-full transition-all transform hover:-translate-y-1 shadow-lg cursor-pointer no-underline">
+                <i class="ph-bold ph-paper-plane-right"></i>
+                Iniciar Parceria
+            </a>
+            
+            <p class="mt-8 text-xs text-slate-600 border-t border-slate-700 pt-4">
+                © 2025 Arquivo Intelectual Brasileiro. Todos os direitos reservados.
+            </p>
+        </footer>
+
+    </main>
+
+    <!-- Script de Animação dos Números -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const counters = document.querySelectorAll('.counter');
+            
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-target');
+                const isFloat = counter.getAttribute('data-target').includes('.');
+                const duration = 2000; // 2 segundos
+                const increment = target / (duration / 16); 
+                
+                let current = 0;
+                
+                const updateCounter = () => {
+                    current += increment;
+                    
+                    if (current < target) {
+                        if(isFloat) {
+                            counter.innerText = current.toFixed(1);
+                        } else {
+                            counter.innerText = Math.ceil(current).toLocaleString('pt-BR');
+                        }
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        if(isFloat) {
+                            counter.innerText = target; // Mantém o ponto se for float
+                        } else {
+                            counter.innerText = target.toLocaleString('pt-BR');
+                        }
+                    }
+                };
+                
+                updateCounter();
+            });
+        });
+    </script>
+</body>
+</html>
