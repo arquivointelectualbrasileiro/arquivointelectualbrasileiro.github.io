@@ -1,5 +1,47 @@
 document.addEventListener('DOMContentLoaded', function() {
 
+    // Preserva a origem entre a landing page e o checkout da Hotmart.
+    // O parâmetro SCK é o identificador nativo de campanhas para produtores.
+    const landingParams = new URLSearchParams(window.location.search);
+    const attributionParams = [
+        'sck',
+        'utm_source',
+        'utm_medium',
+        'utm_campaign',
+        'utm_content',
+        'utm_term'
+    ];
+    const checkoutLinks = document.querySelectorAll('a[href*="pay.hotmart.com"]');
+
+    checkoutLinks.forEach(link => {
+        const checkoutUrl = new URL(link.href);
+
+        attributionParams.forEach(param => {
+            const value = landingParams.get(param);
+            if (value) {
+                checkoutUrl.searchParams.set(param, value);
+            }
+        });
+
+        link.href = checkoutUrl.toString();
+
+        link.addEventListener('click', () => {
+            if (typeof window.gtag !== 'function') {
+                return;
+            }
+
+            window.gtag('event', 'cta_checkout_click', {
+                cta_placement: link.dataset.ctaPlacement || 'unknown',
+                offer: link.dataset.offer || 'unknown',
+                sck: landingParams.get('sck') || 'unknown',
+                campaign_source: landingParams.get('utm_source') || 'unknown',
+                campaign_medium: landingParams.get('utm_medium') || 'unknown',
+                campaign_name: landingParams.get('utm_campaign') || 'unknown',
+                campaign_content: landingParams.get('utm_content') || 'unknown'
+            });
+        });
+    });
+
     // Animação de Scroll (Fade-in)
     const fadeElements = document.querySelectorAll('.fade-in-section');
 

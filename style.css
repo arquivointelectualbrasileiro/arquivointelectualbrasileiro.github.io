@@ -118,6 +118,134 @@ body {
     color: var(--text-muted);
 }
 
+/* Página de escolha usada no sprint orgânico. */
+.choice-page {
+    min-height: 100vh;
+    min-height: 100dvh;
+    padding: 64px 0;
+    background:
+        radial-gradient(circle at top, rgba(212, 175, 55, 0.12), transparent 42%),
+        var(--bg-color);
+}
+
+.choice-header {
+    max-width: 760px;
+    margin: 0 auto 48px;
+    text-align: center;
+}
+
+.choice-header .logo {
+    width: 96px;
+    height: 96px;
+    margin-bottom: 24px;
+    border: 2px solid var(--primary-color);
+    border-radius: 50%;
+}
+
+.choice-header h1 {
+    margin-bottom: 16px;
+    color: #ffffff;
+    font-family: var(--font-heading);
+    font-size: clamp(2.25rem, 6vw, 4rem);
+    line-height: 1.08;
+}
+
+.choice-header p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+}
+
+.choice-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    align-items: stretch;
+    padding: 0;
+}
+
+.choice-card {
+    display: flex;
+    flex-direction: column;
+    padding: 32px;
+    border: 1px solid rgba(212, 175, 55, 0.28);
+    border-radius: 16px;
+    background: var(--surface-color);
+}
+
+.choice-card.featured {
+    border-color: var(--primary-color);
+    box-shadow: 0 14px 44px rgba(212, 175, 55, 0.13);
+}
+
+.choice-label {
+    margin-bottom: 14px;
+    color: var(--primary-color);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.choice-card h2 {
+    margin-bottom: 16px;
+    color: #ffffff;
+    font-family: var(--font-heading);
+    font-size: 2rem;
+}
+
+.choice-card p {
+    color: var(--text-muted);
+}
+
+.choice-card ul {
+    margin: 24px 0 28px;
+    padding-left: 22px;
+}
+
+.choice-card li {
+    margin-bottom: 10px;
+}
+
+.choice-price {
+    margin-top: auto;
+    margin-bottom: 20px;
+    color: #ffffff;
+    font-size: 1.1rem;
+}
+
+.choice-price strong {
+    color: var(--primary-color);
+    font-size: 2rem;
+}
+
+.choice-card .cta-button {
+    width: 100%;
+    padding: 16px 22px;
+    text-align: center;
+}
+
+.choice-note {
+    max-width: 720px;
+    margin: 32px auto 0;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+@media (max-width: 760px) {
+    .choice-page {
+        padding: 36px 0;
+    }
+
+    .choice-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .choice-card {
+        padding: 26px;
+    }
+}
+
 /* Seções Padrão: Mais espaço, sem bordas */
 section {
     padding: 100px 0; /* MUITO MAIS ESPAÇO */
