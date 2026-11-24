@@ -2,8 +2,8 @@
   "use strict";
 
   // ---- Configuração da lista de e-mails (Google Form "Lista do Arquivo Intelectual Brasileiro") ----
-  var FORM = "https://docs.google.com/forms/d/e/1FAIpQLSepGNcGnKCZDG-iwx5NnpH1WcN5v-kynJzi0LeJxapdR3EeHg/formResponse";
-  var CAMPOS = { nome: "entry.1981674827", email: "entry.2140110614", origem: "entry.2138080740" };
+  var FORM = "https://docs.google.com/forms/d/e/1FAIpQLScifVhIcQpHYqsJxFeKX0H1GXJKhMt_Nh6T9WLHUMNPqXqqbg/formResponse";
+  var CAMPOS = { nome: "entry.1846375120", email: "entry.1125914702", origem: "entry.1768562675" };
   var CHAVE = "aib_pop_visto";
   var ATRASO_MS = 15000;        // o popup abre após 15 segundos, ao rolar 50% da página, ou ao tentar sair (computador)
   var ROLAGEM_ABRIR = 0.5;      // fração da página rolada que dispara o popup
