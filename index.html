@@ -31,6 +31,12 @@
 
 <script>document.documentElement.className="js";</script>
 
+<!-- Consentimento de cookies (LGPD): medição só depois do aceite -->
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+var _ck="";try{_ck=localStorage.getItem("aib_cookies")||"";}catch(e){}
+gtag("consent","default",{ad_storage:"denied",ad_user_data:"denied",ad_personalization:"denied",analytics_storage:_ck==="aceito"?"granted":"denied",wait_for_update:500});
+</script>
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -200,11 +206,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <input type="text" name="nome" placeholder="Seu nome (opcional)" autocomplete="given-name" aria-label="Seu nome">
       <input type="email" name="email" placeholder="Seu melhor e-mail" autocomplete="email" required aria-label="Seu e-mail">
       <input class="hp" type="text" name="site" tabindex="-1" autocomplete="off" aria-hidden="true">
-      <p class="form-erro" role="alert" hidden></p>
+      <label class="consent"><input type="checkbox" name="consent" required> <span>Concordo em receber e-mails do Arquivo Intelectual Brasileiro com conteúdos, novidades e ofertas, e li a <a href="privacidade.html" target="_blank" rel="noopener">Política de Privacidade</a>.</span></label>
+        <p class="form-erro" role="alert" hidden></p>
       <button type="submit" class="btn">Quero receber</button>
       <p class="form-ok" hidden>Cadastro feito. Você receberá os próximos avisos neste e-mail.</p>
     </form>
-    <p class="micro">Usaremos seu e-mail somente para enviar conteúdo e avisos do Arquivo. Você pode pedir a remoção a qualquer momento.</p>
+    <p class="micro">Usaremos seu e-mail para enviar conteúdos, novidades e ofertas do Arquivo. Você pode cancelar o recebimento a qualquer momento.</p>
   </div>
 </section>
 
@@ -214,11 +221,21 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <div class="wrap">
     <p>&copy; Arquivo Intelectual Brasileiro. Todos os direitos reservados.</p>
     <p>Produto independente, criado para a divulgação da cultura brasileira.</p>
+    <p><a href="privacidade.html">Política de Privacidade</a> &middot; <button type="button" class="linklike" id="cookies-prefs">Preferências de cookies</button></p>
   </div>
 </footer>
 
 <div class="sticky" id="sticky" aria-hidden="true">
   <a href="https://pay.hotmart.com/K99776127Y?checkoutMode=10&amp;sck=landing" class="btn" data-cta="sticky" tabindex="-1">Quero o Acervo por R$&nbsp;40</a>
+</div>
+
+<!-- Aviso de cookies -->
+<div id="cookies" role="region" aria-label="Aviso de cookies" hidden>
+  <p>Usamos cookies de medição para entender como a página é usada e melhorar o conteúdo. Eles só são ativados se você aceitar. <a href="privacidade.html">Política de Privacidade</a>.</p>
+  <div class="cookies-btns">
+    <button type="button" class="btn" data-cookies="aceito">Aceitar</button>
+    <button type="button" class="btn ghost" data-cookies="recusado">Recusar</button>
+  </div>
 </div>
 
 <!-- Popup de captura de e-mail -->
@@ -232,10 +249,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <input type="text" name="nome" placeholder="Seu nome (opcional)" autocomplete="given-name" aria-label="Seu nome">
         <input type="email" name="email" placeholder="Seu melhor e-mail" autocomplete="email" required aria-label="Seu e-mail">
         <input class="hp" type="text" name="site" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <label class="consent"><input type="checkbox" name="consent" required> <span>Concordo em receber e-mails do Arquivo Intelectual Brasileiro com conteúdos, novidades e ofertas, e li a <a href="privacidade.html" target="_blank" rel="noopener">Política de Privacidade</a>.</span></label>
         <p class="form-erro" role="alert" hidden></p>
         <button type="submit" class="btn">Quero receber</button>
       </form>
-      <p class="micro">Usaremos seu e-mail somente para enviar conteúdo e avisos do Arquivo. Você pode pedir a remoção a qualquer momento.</p>
+      <p class="micro">Usaremos seu e-mail para enviar conteúdos, novidades e ofertas do Arquivo. Você pode cancelar o recebimento a qualquer momento.</p>
     </div>
     <div id="pop-ok" hidden>
       <h2>Cadastro feito.</h2>

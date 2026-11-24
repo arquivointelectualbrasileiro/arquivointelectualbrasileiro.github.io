@@ -6,6 +6,7 @@ Landing page do Acervo Filosófico Mário Ferreira, hospedada no GitHub Pages.
 - `index.html`: landing page principal (copy, SEO, GTM, popup e formulário de e-mail).
 - `assets/style.css`, `assets/app.js`: estilo e comportamento (popup, barra fixa, envio da lista de e-mails, eventos para o GTM).
 - `assets/img/`: imagens otimizadas (hero, logo, favicon, imagem de compartilhamento).
+- `privacidade.html`: Política de Privacidade (LGPD).
 - `404.html`, `robots.txt`, `sitemap.xml`.
 
 ## Páginas mantidas (URLs que podem estar em uso)

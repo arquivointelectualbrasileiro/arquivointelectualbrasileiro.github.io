@@ -9,6 +9,7 @@
   var ROLAGEM_ABRIR = 0.5;      // fração da página rolada que dispara o popup
   var DIAS_SEM_REABRIR = 14;    // se fechar sem se cadastrar, só volta depois disso
   var CADASTRADO = 9999999999999;
+  var CONSENT_VERSAO = "consent-v1"; // sobe a versão sempre que o texto de consentimento mudar
 
   window.dataLayer = window.dataLayer || [];
   function evento(nome, extra) {
@@ -19,6 +20,41 @@
 
   function lerVisto() { try { return parseInt(localStorage.getItem(CHAVE) || "0", 10); } catch (e) { return 0; } }
   function gravarVisto(v) { try { localStorage.setItem(CHAVE, String(v)); } catch (e) {} }
+
+  // ---- Aviso de cookies (consentimento para a medição) ----
+  var banner = document.getElementById("cookies");
+  function lerCookies() { try { return localStorage.getItem("aib_cookies") || ""; } catch (e) { return ""; } }
+  function aplicarCookies(v) {
+    try { localStorage.setItem("aib_cookies", v); } catch (e) {}
+    if (typeof gtag === "function") gtag("consent", "update", { analytics_storage: v === "aceito" ? "granted" : "denied" });
+    evento("cookies_" + v, {});
+    if (banner) banner.hidden = true;
+  }
+  if (banner) {
+    if (!lerCookies()) banner.hidden = false;
+    banner.querySelectorAll("[data-cookies]").forEach(function (b) {
+      b.addEventListener("click", function () { aplicarCookies(b.getAttribute("data-cookies")); });
+    });
+    var prefs = document.getElementById("cookies-prefs");
+    if (prefs) prefs.addEventListener("click", function () { banner.hidden = false; });
+  }
+
+  // ---- Medição de rolagem e tempo na página (enviada ao GTM) ----
+  var marcos = [25, 50, 75, 90], marcosFeitos = {};
+  window.addEventListener("scroll", function () {
+    var alt = document.documentElement.scrollHeight - window.innerHeight;
+    if (alt <= 0) return;
+    var pct = (window.scrollY / alt) * 100;
+    marcos.forEach(function (m) {
+      if (pct >= m && !marcosFeitos[m]) { marcosFeitos[m] = true; evento("scroll_depth", { percent: m }); }
+    });
+  }, { passive: true });
+  var segundosVisiveis = 0, tempos = [15, 30, 60, 120, 240];
+  setInterval(function () {
+    if (document.hidden) return;
+    segundosVisiveis += 5;
+    if (tempos.indexOf(segundosVisiveis) !== -1) evento("tempo_na_pagina", { segundos: segundosVisiveis });
+  }, 5000);
 
   // ---- Revelar seções ao rolar ----
   var secoes = document.querySelectorAll(".reveal");
@@ -99,13 +135,14 @@
       erro.hidden = true;
       if (form.elements.site.value) return; // campo escondido preenchido: robô
       var email = form.elements.email.value.trim();
+      if (!form.elements.consent.checked) { mostrarErro("Marque a caixa para concordar em receber os e-mails."); return; }
       if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { mostrarErro("Confira o e-mail digitado."); return; }
       botao.disabled = true;
       var origem = form.getAttribute("data-origem") || "landing";
       var d = new URLSearchParams();
       d.append(CAMPOS.nome, form.elements.nome.value.trim());
       d.append(CAMPOS.email, email);
-      d.append(CAMPOS.origem, origem);
+      d.append(CAMPOS.origem, origem + "|" + CONSENT_VERSAO);
       fetch(FORM, { method: "POST", mode: "no-cors", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: d.toString() })
         .then(function () {
           gravarVisto(CADASTRADO);
