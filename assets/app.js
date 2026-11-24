@@ -9,7 +9,7 @@
   var ROLAGEM_ABRIR = 0.5;      // fração da página rolada que dispara o popup
   var DIAS_SEM_REABRIR = 14;    // se fechar sem se cadastrar, só volta depois disso
   var CADASTRADO = 9999999999999;
-  var CONSENT_VERSAO = "consent-v1"; // sobe a versão sempre que o texto de consentimento mudar
+  var CONSENT_VERSAO = "consent-v2"; // sobe a versão sempre que o texto de consentimento mudar
 
   window.dataLayer = window.dataLayer || [];
   function evento(nome, extra) {
@@ -150,7 +150,7 @@
           if (origem === "landing-popup") {
             document.getElementById("pop-form").hidden = true;
             document.getElementById("pop-ok").hidden = false;
-            setTimeout(function () { if (fundo) fundo.hidden = true; }, 3500);
+            setTimeout(function () { if (fundo) fundo.hidden = true; }, 12000);
           } else {
             form.querySelectorAll("input,button").forEach(function (el) { el.hidden = true; });
             if (ok) ok.hidden = false;
