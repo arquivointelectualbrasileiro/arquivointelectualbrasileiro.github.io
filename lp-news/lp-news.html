@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arquivo Intelectual Brasileiro - Oferta Especial</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* CSS - O Estilo da Página (Versão Dinâmica) */
+
+        /* 1. Configurações Globais e Variáveis de Cor */
+        :root {
+            --bg-color: #FFFFFF;
+            --text-color: #212529;
+            --primary-color: #003366; /* Azul profundo */
+            --accent-color: #B8860B; /* Dourado queimado */
+            --light-gray: #f8f9fa;
+            --success-color: #198754; 
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.7;
+        }
+
+        /* 2. Layout e Conteúdo Central */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        section {
+            padding: 80px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        section:last-of-type {
+            border-bottom: none;
+        }
+        
+        h1, h2, h3 {
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        h1 {
+            font-size: 3rem;
+        }
+
+        h2 {
+            font-size: 2.4rem;
+        }
+        
+        p {
+            font-size: 1.1rem;
+            max-width: 650px;
+            margin: 0 auto 20px auto;
+        }
+
+        /* 3. Estilos dos Botões (CTA) */
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: #FFFFFF;
+            padding: 15px 35px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 51, 102, 0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 20px rgba(0, 51, 102, 0.3);
+        }
+        
+        /* 4. ANIMAÇÕES DE ENTRADA */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .animate-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* 5. Estilos Específicos das Seções */
+        .hero {
+            color: #fff;
+            background: linear-gradient(45deg, #001f3f, #003366);
+            padding: 80px 0;
+            border-bottom: none;
+        }
+        .hero .subtitulo { font-size: 1.4rem; color: rgba(255, 255, 255, 0.9); }
+        .hero .apoio { font-size: 1rem; color: rgba(255, 255, 255, 0.9); }
+        .hero .cta-button { background-color: var(--accent-color); color: var(--text-color); box-shadow: 0 4px 15px rgba(184, 134, 11, 0.3); }
+        .hero .cta-button:hover { background-color: #c9971c; box-shadow: 0 7px 20px rgba(184, 134, 11, 0.4); }
+        .benefits-grid { display: flex; justify-content: space-around; gap: 30px; margin-top: 40px; text-align: center; }
+        .benefit-item { background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 5px 25px rgba(0, 0, 0, 0.07); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .benefit-item:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); }
+        .benefit-item .icon svg { width: 48px; height: 48px; margin-bottom: 15px; color: var(--primary-color); }
+        .benefit-item h3 { margin-bottom: 10px; }
+        .price-display { background-color: #fff; padding: 30px; border-radius: 8px; margin: 40px auto; max-width: 450px; border: 1px solid #ddd; box-shadow: 0 5px 25px rgba(0, 0, 0, 0.07); }
+        .price-display .old-price { text-decoration: line-through; color: #6c757d; font-size: 1.2rem; }
+        .price-display .new-price { font-size: 2.2rem; font-weight: 700; margin: 10px 0; color: var(--primary-color); }
+        .price-display .bonus { font-weight: 700; font-size: 1.1rem; color: var(--accent-color); }
+        #countdown { font-size: 1.8rem; font-weight: 700; margin: 20px 0 30px 0; color: var(--primary-color); }
+
+        /* NOVA SEÇÃO DE BÔNUS */
+        #bonus { background-color: var(--light-gray); }
+        .bonus-layout { display: flex; align-items: center; gap: 40px; text-align: left; margin-top: 40px; }
+        .bonus-image { flex: 0 0 40%; }
+        .bonus-image .mockup { background-color: #e9ecef; border: 1px solid #dee2e6; border-radius: 8px; width: 100%; height: 300px; display: flex; align-items: center; justify-content: center; font-style: italic; color: #6c757d; }
+        .bonus-content { flex: 1; }
+        .bonus-content h3 { font-size: 1.8rem; }
+        .bonus-content ul { list-style: none; padding: 0; margin: 20px 0; }
+        .bonus-content ul li { padding-left: 30px; position: relative; margin-bottom: 15px; }
+        .bonus-content ul li::before { content: '✔'; color: var(--success-color); position: absolute; left: 0; font-size: 1.2rem; font-weight: 700; }
+        .value-box { background-color: #fff; border: 2px dashed var(--accent-color); border-radius: 8px; padding: 20px; margin-top: 20px; text-align: center; }
+        .value-box .value-text { font-size: 1.1rem; margin: 0; }
+        .value-box .value-price { font-size: 2rem; font-weight: 700; color: var(--text-color); text-decoration: line-through; margin: 5px 0; }
+        .value-box .bonus-price { font-size: 2.5rem; font-weight: 700; color: var(--success-color); margin: 5px 0; }
+        
+        #garantia img { width: 100px; margin-bottom: 20px; }
+
+        .faq-item { text-align: left; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 8px; overflow: hidden; transition: box-shadow 0.3s ease; }
+        .faq-item:hover { box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05); }
+        .faq-question { width: 100%; background: #fff; border: none; text-align: left; padding: 20px; font-size: 1.1rem; font-weight: 500; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+        .faq-question-arrow { font-size: 1.5rem; transition: transform 0.3s ease; }
+        .faq-item.active .faq-question-arrow { transform: rotate(45deg); }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-in-out; background-color: var(--light-gray); }
+        .faq-answer p { padding: 20px; }
+        
+        footer { background-color: var(--light-gray); color: #6c757d; padding: 40px 20px; text-align: center; }
+        
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2rem; }
+            h2 { font-size: 1.8rem; }
+            .benefits-grid { flex-direction: column; align-items: center; text-align: center; }
+            .bonus-layout { flex-direction: column; text-align: center; }
+            .bonus-content ul { text-align: left; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <div class="container">
+            <h1>O Fim da Procrastinação Intelectual!</h1>
+            <p class="subtitulo">O caminho guiado para você dominar a obra de Mário Ferreira dos Santos e encontrar uma comunidade de estudos que te entende.</p>
+            <p class="apoio">Oferta especial: assine o plano anual da nossa newsletter e ganhe o segundo ano de presente.</p>
+            <a href="#oferta" class="cta-button">QUERO GARANTIR MEUS 2 ANOS</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="dor" class="animate-on-scroll">
+            <div class="container">
+                <h2>Você se sente estudando em círculos?</h2>
+                <p>Quantas horas do seu dia você já passou rolando o feed, assistindo a trechos e cortes de aulas, sentindo que está aprendendo algo, mas, no fundo, sabendo que falta um estudo sério e direcionado?</p>
+                <p>Você sabe que Mário Ferreira dos Santos é um gigante, mas a obra dele parece um oceano intimidador. Por onde começar? Qual a ordem correta? Como não interpretar algo de forma errada?</p>
+                <p>E talvez o mais importante: com quem conversar sobre suas descobertas? A solidão intelectual é real. Encontrar pessoas com os mesmos interesses, que buscam a mesma profundidade, parece uma tarefa impossível.</p>
+            </div>
+        </section>
+
+        <section id="solucao" class="animate-on-scroll">
+            <div class="container">
+                <h2>O mapa que você procurava.</h2>
+                <p>A newsletter do Arquivo Intelectual Brasileiro foi criada exatamente para ser o seu guia nesta jornada. Não somos um simples disparo de e-mails. Somos uma comunidade de estudos.</p>
+                <p>A cada texto, você recebe uma aula que descomplica os temas mais difíceis, conecta as ideias de Mário Ferreira e te dá um roteiro claro e seguro.</p>
+                <p>Chega de se sentir perdido. Aqui, você encontra o caminho para transformar o consumo passivo de informações em conhecimento real e estruturado.</p>
+            </div>
+        </section>
+
+        <section id="beneficios" class="animate-on-scroll">
+            <div class="container">
+                <h2>Ao se tornar membro, você terá acesso imediato a:</h2>
+                <div class="benefits-grid">
+                    <div class="benefit-item">
+                        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" /></svg></div>
+                        <h3>Aulas em Texto</h3>
+                        <p>Análises e guias de estudo que facilitam a compreensão dos conceitos mais complexos da filosofia de Mário Ferreira.</p>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18h3" /></svg></div>
+                        <h3>Comunidade no WhatsApp</h3>
+                        <p>Conecte-se diariamente com dezenas de outros estudantes e entusiastas que falam a sua língua e buscam a mesma profundidade.</p>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9A2.25 2.25 0 004.5 18.75z" /></svg></div>
+                        <h3>Encontros Mensais ao Vivo</h3>
+                        <p>Participe de nossas reuniões online para debater os temas, tirar dúvidas e fortalecer laços com os outros membros.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="oferta" class="animate-on-scroll">
+            <div class="container">
+                <h2>Oferta Especial por Tempo Limitado: Pague 1, Leve 2</h2>
+                <p>Queremos construir uma comunidade forte e comprometida. Por isso, ao assinar o plano anual, você não garante apenas 1 ano de acesso. Você ganha o segundo ano inteiramente grátis.</p>
+                <div class="price-display">
+                    <p class="old-price">De R$ 247,00</p>
+                    <p class="new-price">Por apenas 7x de R$ 18,80</p>
+                    <p class="bonus">E o 2º ano é por nossa conta.</p>
+                </div>
+                <p>Esta oferta termina em:</p>
+                <div id="countdown">00:00:00</div>
+                <p style="font-weight: 700;">Mas isso não é tudo...</p>
+            </div>
+        </section>
+
+        <section id="bonus" class="animate-on-scroll">
+            <div class="container">
+                <h2>ESPERE! Você Também Leva Este Bônus Exclusivo:</h2>
+                <div class="bonus-layout">
+                    <div class="bonus-image">
+                        <img src="logoAFMF.png" alt="Logo Arquivo Intelectual Brasileiro" class="logo" style="width: 300px; max-width: 100%; height: auto;">
+                    </div>
+                    <div class="bonus-content">
+                        <h3>O Acervo MFS</h3>
+                        <p>Ao se inscrever hoje, você ganha acesso imediato e gratuito a uma experiência de estudo organizada que transforma os áudios soltos em um verdadeiro curso.</p>
+                        <ul>
+                            <li><strong>Aulas Organizadas:</strong> Áudios em ordem cronológica e temática, com qualidade melhorada.</li>
+                            <li><strong>Transcrições:</strong> Os trechos mais importantes de cada aula, transcritos para facilitar seu estudo e consulta.</li>
+                            <li><strong>Comunidade Exclusiva:</strong> Um grupo fechado apenas para membros do Acervo, para aprofundar as discussões.</li>
+                        </ul>
+                        <div class="value-box">
+                            <p class="value-text">Valor normal deste pacote:</p>
+                            <p class="value-price">R$ 97,00</p>
+                            <p class="value-text">Para você hoje:</p>
+                            <p class="bonus-price">GRÁTIS!</p>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-top: 40px;">
+                     <a href="https://pay.hotmart.com/K99776127Y?off=mhgb81lp&checkoutMode=10&bid=1749546452674" class="cta-button">QUERO 2 ANOS DE NEWSLETTER + O ACERVO COMPLETO</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="animate-on-scroll">
+            <div class="container">
+                <h2>Perguntas Frequentes</h2>
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <button class="faq-question">Como vou receber as aulas?<span class="faq-question-arrow">+</span></button>
+                        <div class="faq-answer"><p>As aulas são enviadas diretamente para o seu e-mail em formato de texto. Você também terá acesso a um arquivo online com todo o material já publicado.</p></div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">O grupo no WhatsApp é muito movimentado?<span class="faq-question-arrow">+</span></button>
+                        <div class="faq-answer"><p>O grupo tem um fluxo saudável de conversas focadas nos temas de estudo. Temos regras claras para manter o foco e a qualidade das discussões, evitando o excesso de notificações.</p></div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">E se eu não puder participar de uma reunião mensal?<span class="faq-question-arrow">+</span></button>
+                        <div class="faq-answer"><p>Não se preocupe! Todas as reuniões são gravadas e disponibilizadas para os membros na nossa área de membros, para que você possa assistir quando for mais conveniente.</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contato">
+        <div class="container">
+            <p><strong>Arquivo Intelectual Brasileiro</strong></p>
+            <p>&copy; 2024. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        /* JavaScript - A Interatividade da Página */
+        // 1. Funcionalidade do FAQ (Accordion)
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                const answer = item.querySelector('.faq-answer');
+                const currentlyActive = item.classList.contains('active');
+                
+                faqItems.forEach(i => {
+                    i.classList.remove('active');
+                    i.querySelector('.faq-answer').style.maxHeight = '0';
+                });
+
+                if (!currentlyActive) {
+                    item.classList.add('active');
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                }
+            });
+        });
+
+        // 2. Funcionalidade do Contador Regressivo
+        function startCountdown(duration, display) {
+            let timer = duration, hours, minutes, seconds;
+            const intervalId = setInterval(function () {
+                hours = parseInt(timer / 3600, 10);
+                minutes = parseInt((timer % 3600) / 60, 10);
+                seconds = parseInt(timer % 60, 10);
+
+                hours = hours < 10 ? "0" + hours : hours;
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                display.textContent = hours + ":" + minutes + ":" + seconds;
+
+                if (--timer < 0) {
+                    clearInterval(intervalId);
+                    display.textContent = "Oferta Encerrada!";
+                }
+            }, 1000);
+        }
+
+        // 3. Animação de Scroll com Intersection Observer
+        const scrollObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1 // A animação começa quando 10% do elemento está visível
+        });
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            // Inicia o contador
+            const countdownDuration = 86400; // 24 horas em segundos
+            const display = document.querySelector('#countdown');
+            if(display) startCountdown(countdownDuration, display);
+
+            // Inicia o observador de scroll
+            const targets = document.querySelectorAll('.animate-on-scroll');
+            targets.forEach(target => scrollObserver.observe(target));
+        });
+    </script>
+
+</body>
+</html>
