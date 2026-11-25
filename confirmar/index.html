@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Arquivo Intelectual Brasileiro</title>
+<link rel="icon" type="image/png" href="../assets/img/favicon.png">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<main class="legal">
+  <h1 id="titulo">Um instante...</h1>
+  <p id="texto">Estamos processando o seu pedido.</p>
+  <p id="acao" hidden><a id="botao" class="btn" href="#">Continuar</a></p>
+  <p class="upd">Arquivo Intelectual Brasileiro</p>
+</main>
+<script>
+(function () {
+  "use strict";
+  var APP = "https://script.google.com/macros/s/AKfycbzYBb_gEpyjBXlQ3QSvHqII_P8kI8kHHrDEZe8M30zEZcqa77Gd9tE_lr6yUPE2omTn/exec";
+  var q = new URLSearchParams(location.search);
+  var a = q.get("a"), i = q.get("i"), t = q.get("t");
+  var titulo = document.getElementById("titulo"), texto = document.getElementById("texto");
+
+  function mostrar(h, p) { titulo.textContent = h; texto.textContent = p; }
+  function invalido() { mostrar("Link inválido", "Este link não é válido. Se você copiou o endereço, confira se ele está completo."); }
+
+  if (!a || !i || !t || (a !== "confirmar" && a !== "sair" && a !== "oferta")) { invalido(); return; }
+
+  var url = APP + "?f=json&a=" + encodeURIComponent(a) + "&i=" + encodeURIComponent(i) + "&t=" + encodeURIComponent(t);
+  fetch(url)
+    .then(function (r) { return r.json(); })
+    .then(function (d) {
+      var quem = d.email || "seu e-mail";
+      if (d.estado === "invalido") { invalido(); return; }
+      if (a === "sair") {
+        if (d.estado === "saiu") mostrar("Pronto, você saiu da lista", "Não vou mais enviar e-mails para " + quem + ".");
+        else mostrar("Cadastro não encontrado", "Não achei este e-mail na lista.");
+        return;
+      }
+      if (a === "confirmar") {
+        if (d.estado === "ok" || d.estado === "ja") mostrar("E-mail confirmado", "Em instantes você recebe a biografia em " + quem + ". Confira também a caixa de spam.");
+        else if (d.estado === "saiu_antes") mostrar("Você saiu da lista", "Para receber de novo, cadastre-se outra vez no site.");
+        else mostrar("Cadastro não encontrado", "Não achei este e-mail na lista.");
+        return;
+      }
+      if (d.estado === "ok" && d.url) {
+        mostrar("Desconto de 25% liberado", "Levando você para a página de pagamento da Formação, com o desconto já aplicado.");
+        var b = document.getElementById("botao");
+        b.href = d.url; b.textContent = "Ir para a Formação";
+        document.getElementById("acao").hidden = false;
+        setTimeout(function () { location.href = d.url; }, 1200);
+      } else if (d.estado === "encerrada") {
+        mostrar("O prazo deste link terminou", "O desconto liberado por este link foi encerrado. Você continua recebendo os conteúdos do Arquivo.");
+      } else {
+        mostrar("Oferta não encontrada", "Não achei esta oferta. Se você copiou o endereço, confira se ele está completo.");
+      }
+    })
+    .catch(function () {
+      mostrar("Não foi possível concluir agora", "Tente abrir o link do e-mail de novo em alguns instantes.");
+    });
+})();
+</script>
+</body>
+</html>
